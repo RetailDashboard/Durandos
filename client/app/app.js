@@ -7,7 +7,6 @@ var retailDashboardApp = angular.module('retailDashboardApp', [
   'ui.router',
   'ui.bootstrap'
 ])
-
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
     $urlRouterProvider
       .otherwise('/');
