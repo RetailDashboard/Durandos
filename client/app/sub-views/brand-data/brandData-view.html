@@ -1,0 +1,9 @@
+<div ng-controller='BrandController'>
+  <h3>Data by Brand</h3>
+  <table>
+    <tr ng-repeat='(key, value) in data[0]'>
+      <td>{{key}}</td>
+      <td ng-repeat='row in data'>{{row[key]}} </td> 
+    </tr>
+  </table>
+</div>
