@@ -27,6 +27,8 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
+
+
     <div ui-view="">
       <top-bar></top-bar>
       <nav-bar></nav-bar>
@@ -34,6 +36,8 @@
       <side-bar></side-bar>
       <bottom-chart></bottom-chart>
     </div>
+
+
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -61,11 +65,21 @@
         <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
         <script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
 
+        
         <!-- build:js({.tmp,client}) app/app.js -->
         <script src="app/app.js"></script>
         <script src="app/app.directive.js"></script>
         <script src="components/auth/auth.service.js"></script>
         <script src="components/auth/user.service.js"></script>
+
+
+
+
+        <script src="components/data/data.service.js"></script>
+        <script src="app/sub-views/brand-data/brand-controller.js"></script>
+        <script src="app/sub-views/category-data/category-controller.js"></script>
+        <script src="app/sub-views/item-data/item-controller.js"></script>
+
           <!-- injector:js -->
           <!-- endinjector -->
         <!-- endbuild -->
