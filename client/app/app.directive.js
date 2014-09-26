@@ -1,6 +1,12 @@
 'use strict';
 
-retailDashboardApp
+angular.module('retailDashboardApp', [
+  'ngCookies',
+  'ngResource',
+  'ngSanitize',
+  'ui.router',
+  'ui.bootstrap'
+])
   .directive('topBar', function() {
     return {
       restrict: 'E',
