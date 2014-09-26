@@ -1,71 +1,24 @@
-/*
-Error: Undefined variable: "$brand-primary".
-        on line 12 of client/components/modal/modal.scss
+.modal-primary .modal-header,
+.modal-info .modal-header,
+.modal-success .modal-header,
+.modal-warning .modal-header,
+.modal-danger .modal-header {
+  color: #fff;
+  border-radius: 5px 5px 0 0; }
 
-7:     color: #fff;
-8:     border-radius: 5px 5px 0 0;
-9:   }
-10: }
-11: .modal-primary .modal-header {
-12:   background: $brand-primary;
-13: }
-14: .modal-info .modal-header {
-15:   background: $brand-info;
-16: }
-17: .modal-success .modal-header {
+.modal-primary .modal-header {
+  background: blue; }
 
-Backtrace:
-client/components/modal/modal.scss:12
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.4/lib/sass/script/tree/variable.rb:49:in `_perform'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.4/lib/sass/script/tree/node.rb:50:in `perform'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.4/lib/sass/tree/visitors/perform.rb:384:in `visit_prop'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.4/lib/sass/tree/visitors/base.rb:36:in `visit'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.4/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.4/lib/sass/stack.rb:79:in `block in with_base'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.4/lib/sass/stack.rb:115:in `with_frame'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.4/lib/sass/stack.rb:79:in `with_base'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.4/lib/sass/tree/visitors/perform.rb:158:in `visit'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.4/lib/sass/tree/visitors/perform.rb:420:in `block (2 levels) in visit_rule'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.4/lib/sass/tree/visitors/perform.rb:420:in `map'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.4/lib/sass/tree/visitors/perform.rb:420:in `block in visit_rule'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.4/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.4/lib/sass/tree/visitors/perform.rb:418:in `visit_rule'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.4/lib/sass/tree/visitors/base.rb:36:in `visit'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.4/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.4/lib/sass/stack.rb:79:in `block in with_base'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.4/lib/sass/stack.rb:115:in `with_frame'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.4/lib/sass/stack.rb:79:in `with_base'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.4/lib/sass/tree/visitors/perform.rb:158:in `visit'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.4/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.4/lib/sass/tree/visitors/base.rb:52:in `map'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.4/lib/sass/tree/visitors/base.rb:52:in `visit_children'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.4/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.4/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.4/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.4/lib/sass/tree/visitors/base.rb:36:in `block in visit'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.4/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.4/lib/sass/tree/visitors/base.rb:36:in `visit'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.4/lib/sass/tree/visitors/perform.rb:157:in `visit'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.4/lib/sass/tree/visitors/perform.rb:8:in `visit'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.4/lib/sass/tree/root_node.rb:36:in `css_tree'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.4/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.4/lib/sass/engine.rb:368:in `_render_with_sourcemap'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.4/lib/sass/engine.rb:285:in `render_with_sourcemap'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.4/lib/sass/plugin/compiler.rb:489:in `update_stylesheet'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.4/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.4/lib/sass/plugin/compiler.rb:209:in `each'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.4/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.4/lib/sass/plugin/compiler.rb:293:in `watch'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.4/lib/sass/plugin.rb:108:in `method_missing'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.4/lib/sass/exec/sass_scss.rb:349:in `watch_or_update'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.4/lib/sass/exec/sass_scss.rb:50:in `process_result'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.4/lib/sass/exec/base.rb:40:in `parse'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.4/lib/sass/exec/base.rb:19:in `parse!'
-C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.4/bin/sass:13:in `<top (required)>'
-C:/Ruby193/bin/sass:23:in `load'
-C:/Ruby193/bin/sass:23:in `<main>'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Error: Undefined variable: \"$brand-primary\".\A         on line 12 of client/components/modal/modal.scss\A \A 7:     color: #fff;\A 8:     border-radius: 5px 5px 0 0;\A 9:   }\A 10: }\A 11: .modal-primary .modal-header {\A 12:   background: $brand-primary;\A 13: }\A 14: .modal-info .modal-header {\A 15:   background: $brand-info;\A 16: }\A 17: .modal-success .modal-header {"; }
+.modal-info .modal-header {
+  background: gray; }
+
+.modal-success .modal-header {
+  background: green; }
+
+.modal-warning .modal-header {
+  background: red; }
+
+.modal-danger .modal-header {
+  background: dark-gray; }
+
+/*# sourceMappingURL=modal.css.map */

@@ -1,6 +1,6 @@
 'use strict';
 
-var retailDashboardApp = angular.module('retailDashboardApp', [
+angular.module('retailDashboardApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
