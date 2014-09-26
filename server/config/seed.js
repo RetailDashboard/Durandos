@@ -11,7 +11,7 @@ var Category = require('../api/category/category.model');
 var Brand = require('../api/brand/brand.model');
 var Item = require('../api/item/item.model');
 var CategoryMonth = require('../api/categoryMonth/categoryMonth.model');
-var ItemTatic = require('../api/itemTatic/itemTatic.model');
+var ItemTactic = require('../api/itemTactic/itemTactic.model');
 
 Thing.find({}).remove(function() {
   Thing.create({
@@ -74,8 +74,8 @@ id:0,month:"Sep",sales:65,volume:40,margin:-2,profit:-1,transactions:20,impact:6
   );
 });
 
-ItemTatic.find({}).remove(function() {
-  ItemTatic.create({
+ItemTactic.find({}).remove(function() {
+  ItemTactic.create({
  id: 0,item_id: 1,item: "Paper Cup Container",avgRetail: "$2.49 ",avgPromoPrice: "$2.00 ",page: 1,ad_weel: "12-01-02",ad_type: "QTY 3/$6",sales: 206,volume: 103,margin: 45,profit: 45,transactions: 34,impact: 1760,isBest: true,followUp: null,action: "Increase $3/6 tactics and reduce BOGO given very similar incremental sales performance and significantly stronger margin lift from QTY tactic",hiddenAction: null,actionColor: "green",actionOrder: 1},
 {id: 1,item_id: 1,item: "Paper Cup Container",avgRetail: "$2.49 ",avgPromoPrice: "$2.00 ",page: 2,ad_weel: "12-03-12",ad_type: "QTY 3/$6",sales: 212,volume: 106,margin: 49,profit: 49,transactions: 36,impact: 1402,isBest: true,followUp: null,action: null,hiddenAction: null,actionColor: null,actionOrder: null},
 {id: 2,item_id: 1,item: "Paper Cup Container",avgRetail: "$2.49 ",avgPromoPrice: "$1.99 ",page: 1,ad_weel: "12-04-23",ad_type: "20% Off",sales: 146,volume: 73,margin: 33,profit: 33,transactions: 21,impact: 1075,isBest: false,followUp: "Test performance of additional percent off tactics",action: null,hiddenAction: "Performance of 20% and 24% events is strong, despite relatively few tactics for item / category",actionColor: "yellow",actionOrder: 3},
@@ -98,7 +98,7 @@ ItemTatic.find({}).remove(function() {
 {id: 13,item_id: 27,item: "Cookies with Chips",avgRetail: "$3.49 ",avgPromoPrice: "$1.75 ",page: 1,ad_weel: "12-01-02",ad_type: "BOGO",sales: 366,volume: 209,margin: -250,profit: -120,transactions: 219,impact: 13127,isBest: false,followUp: null,action: "Reduce BOGO tactic to preserve margin and/or renegotiate with vendor for additional funding",hiddenAction: "Current tactic and funding generates large volume increases but negative margin impact",actionColor: "red",actionOrder: 2},
 {id: 14,item_id: 27,item: "Cookies with Chips",avgRetail: "$3.49 ",avgPromoPrice: "$1.75 ",page: 1,ad_weel: "02-03-12",ad_type: "BOGO",sales: 147,volume: 84,margin: -103,profit: -41,transactions: 132,impact: 9345,isBest: false,followUp: null,action: null,hiddenAction: null,actionColor: null,actionOrder: null
 }, function() {
-      console.log('finished populating item tatics');
+      console.log('finished populacting item tactics');
     }
   );
 });
@@ -130,7 +130,7 @@ Item.find({}).remove(function() {
 {id: 16,Category: 8,brand: 5,item: "Durandos",numEvents: 7,sales: 113,volume: 68,margin: -69,profit: -30,transactions: 43,impact: 2390,isBest: false,followUp: "Investigate tactics and vendor funding levels for Durandos",action: null,hiddenAction: "Current tactics generate very strong sales and volumep erformance but low margin: contribution",actionColor: "yellow",disabled: false,ActionOrder: 2},
 {id: 22,Category: 8,brand: 5,item: "Durando Puffs",numEvents: 7,sales: 49,volume: 24,margin: -51,profit: 3,transactions: 25,impact: 1301,isBest: false,followUp: null,action: null,hiddenAction: null,actionColor: null,disabled: true,ActionOrder: null},
 {id: 18,Category: 8,brand: 5,item: "Chax",numEvents: 6,sales: 21,volume: 11,margin: -5,profit: -4,transactions: 9,impact: 450,isBest: false,followUp: null,action: null,hiddenAction: null,actionColor: null,disabled: true,ActionOrder: null},
-{id: 28,Category: 5,brand: 14,item: "Golden Greys",numEvents: 24,sales: -1,volume: -1,margin: -1,profit: -1,transactions: 3,impact: 232,isBest: false,followUp: null,action: "Reduce Golden Greys events given poor sales and margin: performance relative to other items within the brand" ,hiddenAction: null,actionColor: "red",disabled: true,ActionOrder: 2},
+{id: 28,Category: 5,brand: 14,item: "Golden Greys",numEvents: 24,sales: -1,volume: -1,margin: -1,profit: -1,transactions: 3,impact: 232,isBest: false,followUp: null,action: "Reduce Golden Greys events given poor sales and margin: performance relactive to other items within the brand" ,hiddenAction: null,actionColor: "red",disabled: true,ActionOrder: 2},
 {id: 25,Category: 5,brand: 14,item: "100 Calorie",numEvents: 17,sales: 11,volume: 6,margin: -1,profit: -1,transactions: 5,impact: 165,isBest: false,followUp: "Investigate tactics and vendor funding levels for 100 Calorie and Apple Tarts ",action: null,hiddenAction: "Current approach drives strong sales / volumeu plift but poor margin: growth",actionColor: "yellow",disabled: true,ActionOrder: 3},
 {id: 34,Category: 5,brand: 14,item: "Gingerbread Bats",numEvents: 17,sales: 3,volume: 2,margin: 1,profit: 1,transactions: 6,impact: 11,isBest: false,followUp: null,action: null,hiddenAction: null,actionColor: null,disabled: true,ActionOrder: null},
 {id: 29,Category: 5,brand: 14,item: "Apple Tarts",numEvents: 16,sales: 10,volume: 5,margin: -4,profit: -1,transactions: 10,impact: 998,isBest: false,followUp: null,action: null,hiddenAction: null,actionColor: null,disabled: true,ActionOrder: null},
