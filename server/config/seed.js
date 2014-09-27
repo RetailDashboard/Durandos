@@ -6,12 +6,12 @@
 'use strict';
 
 var Thing = require('../api/thing/thing.model');
-var User = require('../api/user/user.model');
 var Category = require('../api/category/category.model');
 var Brand = require('../api/brand/brand.model');
 var Item = require('../api/item/item.model');
 var CategoryMonth = require('../api/categoryMonth/categoryMonth.model');
 var ItemTactic = require('../api/itemTactic/itemTactic.model');
+
 
 Thing.find({}).remove(function() {
   Thing.create({
@@ -35,23 +35,6 @@ Thing.find({}).remove(function() {
   });
 });
 
-User.find({}).remove(function() {
-  User.create({
-    provider: 'local',
-    name: 'Test User',
-    email: 'test@test.com',
-    password: 'test'
-  }, {
-    provider: 'local',
-    role: 'admin',
-    name: 'Admin',
-    email: 'admin@admin.com',
-    password: 'admin'
-  }, function() {
-      console.log('finished populating users');
-    }
-  );
-});
 
 CategoryMonth.find({}).remove(function() {
   CategoryMonth.create({

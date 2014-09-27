@@ -9,17 +9,17 @@
   }
 }
 .modal-primary .modal-header {
-  background: blue;
+  background: $brand-primary;
 }
 .modal-info .modal-header {
-  background: gray;
+  background: $brand-info;
 }
 .modal-success .modal-header {
-  background: green;
+  background: $brand-success;
 }
 .modal-warning .modal-header {
-  background: red;
+  background: $brand-warning;
 }
 .modal-danger .modal-header {
-  background: dark-gray;
+  background: $brand-danger;
 }

@@ -16,31 +16,23 @@
       <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,client}) app/app.css -->
+    <link rel="stylesheet" href="app/app.css">
       <!-- injector:css -->
       <link rel="stylesheet" href="app/account/login/login.css">
       <link rel="stylesheet" href="app/admin/admin.css">
       <link rel="stylesheet" href="app/app.css">
-      <link rel="stylesheet" href="components/modal/modal.css">
       <link rel="stylesheet" href="app/custom.css">
+      <link rel="stylesheet" href="components/modal/modal.css">
       <!-- endinjector -->
     <!-- endbuild -->
   </head>
-  <body ng-app="retailDashboardApp">
+  <body ng-app="testAppApp">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
     <!-- Add your site or application content here -->
-
-
-    <div ui-view="">
-      <top-bar></top-bar>
-      <nav-bar></nav-bar>
-      <main-chart></main-chart>
-      <side-bar></side-bar>
-      
-    </div>
-
+    <div ui-view=""></div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
     <script>
@@ -59,27 +51,19 @@
     <![endif]-->
     <!-- build:js({client,node_modules}) app/vendor.js -->
       <!-- bower:js -->
-      <script src="bower_components/angular/angular.js"></script>
       <script src="bower_components/jquery/dist/jquery.js"></script>
-      <script src="bower_components/json3/lib/json3.js"></script>
+      <script src="bower_components/angular/angular.js"></script>
+      <script src="bower_components/angular-resource/angular-resource.js"></script>
+      <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+      <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
       <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
       <script src="bower_components/lodash/dist/lodash.compat.js"></script>
+      <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
       <!-- endbower -->
     <!-- endbuild -->
-        <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-        <script src="bower_components/angular-resource/angular-resource.js"></script>
-        <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-        <script src="bower_components/angular-mocks/angular-mocks.js"></script>
-        <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-        <script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
 
-        
         <!-- build:js({.tmp,client}) app/app.js -->
         <script src="app/app.js"></script>
-        <script src="components/data/data.service.js"></script>
-        <script src="app/sub-views/brand-data/brand.controller.js"></script>
-        <script src="app/sub-views/category-data/category.controller.js"></script>
-        <script src="app/sub-views/item-data/item.controller.js"></script>
           <!-- injector:js -->
           <script src="app/account/account.js"></script>
           <script src="app/account/login/login.controller.js"></script>
@@ -88,8 +72,22 @@
           <script src="app/admin/admin.controller.js"></script>
           <script src="app/admin/admin.js"></script>
           <script src="app/app.directive.js"></script>
+          <script src="app/brand/brand.controller.js"></script>
+          <script src="app/brand/brand.js"></script>
+          <script src="app/category/category.controller.js"></script>
+          <script src="app/category/category.js"></script>
+          <script src="app/department/department.controller.js"></script>
+          <script src="app/department/department.js"></script>
+          <script src="app/item/item.controller.js"></script>
+          <script src="app/item/item.js"></script>
+          <script src="app/main/main.controller.js"></script>
+          <script src="app/main/main.js"></script>
+          <script src="app/sub-views/brand-data/brand.controller.js"></script>
+          <script src="app/sub-views/category-data/category.controller.js"></script>
+          <script src="app/sub-views/item-data/item.controller.js"></script>
           <script src="components/auth/auth.service.js"></script>
           <script src="components/auth/user.service.js"></script>
+          <script src="components/data/data.service.js"></script>
           <script src="components/modal/modal.service.js"></script>
           <script src="components/mongoose-error/mongoose-error.directive.js"></script>
           <script src="components/navbar/navbar.controller.js"></script>

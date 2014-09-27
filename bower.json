@@ -1,5 +1,5 @@
 {
-  "name": "retail-dashboard",
+  "name": "test-app",
   "version": "0.0.0",
   "dependencies": {
     "angular": ">=1.2.*",
