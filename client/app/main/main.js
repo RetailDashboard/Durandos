@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('testAppApp')
+angular.module('retailDashboardApp')
   .config(function ($stateProvider) {
     $stateProvider
       .state('main', {

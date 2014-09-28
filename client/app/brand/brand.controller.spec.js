@@ -3,7 +3,7 @@
 describe('Controller: BrandCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('testAppApp'));
+  beforeEach(module('retailDashboardApp'));
 
   var BrandCtrl, scope;
 
