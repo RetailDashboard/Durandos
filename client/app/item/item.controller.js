@@ -1,6 +1,19 @@
 'use strict';
 
-angular.module('retailDashboardApp')
-  .controller('ItemCtrl', function ($scope) {
-    $scope.message = 'Hello';
+angular.module('itemDataModule', ['ngResource'])
+  .controller('ItemCtrl', function ($scope, ItemDataFactory) {
+    $scope.data = ItemDataFactory.getItemData();
+  })
+  .factory('ItemDataFactory', function ($resource) {
+    return $resource('/api/items',
+      {
+        id: '@_id'
+      },
+      {
+        getItemData: {
+          method: 'GET',
+          isArray: true
+        }
+      }
+    );
   });
