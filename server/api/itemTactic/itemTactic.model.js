@@ -5,7 +5,7 @@ var mongoose = require('mongoose'),
 
 var ItemtaticSchema = new Schema({
   id: Number,
-  item_Id: Number,
+  item_id: Number,
   item: String,
   avgRetail: String,
   avgPromoPrice: String,

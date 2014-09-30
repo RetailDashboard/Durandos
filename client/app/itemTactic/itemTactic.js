@@ -3,9 +3,9 @@
 angular.module('retailDashboardApp')
   .config(function ($stateProvider) {
     $stateProvider
-      .state('scope.itemTactic', {
+      .state('main.itemTactic', {
         url: '/itemTactic',
         templateUrl: 'app/itemTactic/itemTactic.html',
-        controller: 'ItemtacticCtrl'
+        controller: 'ItemTacticCtrl'
       });
   });
