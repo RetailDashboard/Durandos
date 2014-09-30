@@ -3,7 +3,7 @@
 angular.module('retailDashboardApp')
   .config(function ($stateProvider) {
     $stateProvider
-      .state('brand', {
+      .state('main.brand', {
         url: '/brand',
         templateUrl: 'app/brand/brand.html',
         controller: 'BrandCtrl'
