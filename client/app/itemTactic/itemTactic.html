@@ -1,3 +1,59 @@
-<div class="col-md-12">
-This is the itemTactic view.
+<div class="col-md-12" ng-controller="ItemTacticCtrl">
+
+  <style>
+    tr, th, td {
+      text-align: center;
+      border: 1px dotted;
+    }
+    tr:nth-child(odd) {
+      background-color: #DDD;
+    }
+  </style>
+
+  <table>
+    <tr>
+      <th>id</th>
+      <th>item_id</th>
+      <th>item</th>
+      <th>avgRetail</th>
+      <th>avgPromoPrice</th>
+      <th>page</th>
+      <th>ad_week</th>
+      <th>ad_type</th>
+      <th>sales</th>
+      <th>volume</th>
+      <th>margin</th>
+      <th>profit</th>
+      <th>transactions</th>
+      <th>impact</th>
+      <th>isBest</th>
+      <th>followUp</th>
+      <th>action</th>
+      <th>hiddenAction</th>
+      <th>actionColor</th>
+      <th>actionOrder</th>
+    </tr>
+    <tr ng-repeat="d in data">
+      <td>{{ d.id }}</td>
+      <td>{{ d.item_id }}</td>
+      <td>{{ d.item }}</td>
+      <td>{{ d.avgRetail }}</td>
+      <td>{{ d.avgPromoPrice }}</td>
+      <td>{{ d.page }}</td>
+      <td>{{ d.ad_week }}</td>
+      <td>{{ d.ad_type }}</td>
+      <td>{{ d.sales }}</td>
+      <td>{{ d.volume }}</td>
+      <td>{{ d.margin }}</td>
+      <td>{{ d.profit }}</td>
+      <td>{{ d.transactions }}</td>
+      <td>{{ d.impact }}</td>
+      <td>{{ d.isBest }}</td>
+      <td>{{ d.followUp }}</td>
+      <td>{{ d.action }}</td>
+      <td>{{ d.hiddenAction }}</td>
+      <td>{{ d.actionColor }}</td>
+      <td>{{ d.actionOrder }}</td>
+    </tr>
+  </table>
 </div>
