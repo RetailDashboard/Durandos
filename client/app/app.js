@@ -7,7 +7,8 @@ angular.module('retailDashboardApp', [
   'ui.router',
   'ui.bootstrap',
   'categoryDataModule',
-  'brandDataModule'
+  'brandDataModule',
+  'itemDataModule'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $urlRouterProvider
