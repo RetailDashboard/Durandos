@@ -9,10 +9,12 @@ angular.module('retailDashboardApp', [
   'categoryDataModule',
   'brandDataModule',
   'itemDataModule',
-  'itemTacticDataModule'
+  'itemTacticDataModule',
+  'mainModule'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $urlRouterProvider
       .otherwise('/main/department');
     // $locationProvider.html5Mode(true);
   });
+  
