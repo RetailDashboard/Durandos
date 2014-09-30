@@ -1,6 +1,19 @@
 'use strict';
 
-angular.module('retailDashboardApp')
-  .controller('BrandCtrl', function ($scope) {
-    $scope.message = 'Hello';
+angular.module('brandDataModule', ['ngResource'])
+  .controller('BrandCtrl', function ($scope, BrandDataFactory) {
+    $scope.data = BrandDataFactory.getBrandData();
+  })
+  .factory('BrandDataFactory', function($resource) {
+    return $resource('/api/brands',
+      {
+        id: '@_id'
+      },
+      {
+        getBrandData: {
+          method: 'GET',
+          isArray: true
+        }
+      }
+    );
   });

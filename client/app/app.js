@@ -6,7 +6,8 @@ angular.module('retailDashboardApp', [
   'ngSanitize',
   'ui.router',
   'ui.bootstrap',
-  'categoryDataModule'
+  'categoryDataModule',
+  'brandDataModule'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $urlRouterProvider
