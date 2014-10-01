@@ -3,23 +3,25 @@
 angular.module('mainModule', ['mainService'])
   .controller('MainCtrl', function($scope, $state, DataItems, DataBrands, DataCategories, DataItemTactics) {
   $scope.all = 'All';
+  //select tag modeled after null to work with ng-disabled
   $scope.selectedDepartment = null;
-  $scope.displayCategories = DataCategories.getCategoryData(); 
   $scope.selectedCategory = null;
-  $scope.displayBrands = DataBrands.getBrandData();
   $scope.selectedBrand = null;
-  $scope.displayItems = DataItems.getItemData();
   $scope.selectedItem = null;
-  $scope.displayTactics = DataItemTactics.getItemTacticData();
   $scope.selectedTactic = null;
-
+  //data fetched from DB to populate dropdowns
+  $scope.displayCategories = DataCategories.getCategoryData(); 
+  $scope.displayBrands = DataBrands.getBrandData();
+  $scope.displayItems = DataItems.getItemData();
+  $scope.displayTactics = DataItemTactics.getItemTacticData();
+  //dummy department data
   $scope.departments = [
     {name: 'Dry Goods'},
     {name:'Frozen Food'},
     {name:'Electronics'}
   ];
-  
-  $scope.selection = function(selectedItem) {
+  //disables dropdowns if preceding dropdown is not active
+  $scope.disableDropdowns = function() {
     if($scope.selectedDepartment === null){
       $scope.selectedCategory = null;
     }
@@ -33,21 +35,29 @@ angular.module('mainModule', ['mainService'])
       $scope.selectedTactic = null;
     }
   };
-  
+  //
   $scope.changeDepartment = function() {
     $state.go('main.category');
+    $scope.disableDropdowns();
   };
 
   $scope.changeCategory = function() {
     $state.go('main.brand');
+    $scope.disableDropdowns();
   };
 
   $scope.changeBrand = function() {
     $state.go('main.item');
+    $scope.disableDropdowns();
   };
 
   $scope.changeItem = function() {
     $state.go('main.itemTactic');
+    $scope.disableDropdowns();
+  };
+
+  $scope.changeTactic = function() {
+    //console.log('tactic changed');
   };
 
 })
