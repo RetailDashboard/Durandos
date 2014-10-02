@@ -1,0 +1,21 @@
+'use strict';
+
+describe('Controller: CharttestCtrl', function () {
+
+  // load the controller's module
+  beforeEach(module('retailDashboardApp'));
+
+  var CharttestCtrl, scope;
+
+  // Initialize the controller and a mock scope
+  beforeEach(inject(function ($controller, $rootScope) {
+    scope = $rootScope.$new();
+    CharttestCtrl = $controller('CharttestCtrl', {
+      $scope: scope
+    });
+  }));
+
+  it('should ...', function () {
+    expect(1).toEqual(1);
+  });
+});
