@@ -5,7 +5,7 @@ var Categorymonth = require('./categoryMonth.model');
 
 // Get list of categoryMonths
 exports.index = function(req, res) {
-  Categorymonth.find(function (err, categoryMonths) {
+  Categorymonth.find({}, function (err, categoryMonths) {
     if(err) { return handleError(res, err); }
     return res.json(200, categoryMonths);
   });
