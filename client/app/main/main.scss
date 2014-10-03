@@ -1,27 +1,46 @@
-.thing-form {
-    margin: 20px 0;
-}
-
-#banner {
-    border-bottom: none;
-    margin-top: -20px;
-}
-
-#banner h1 {
-    font-size: 60px;
-    line-height: 1;
-    letter-spacing: -1px;
-}
-
-.hero-unit {
-    position: relative;
-    padding: 30px 15px;
-    color: #F5F5F5;
-    text-align: center;
-    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
-    background: #4393B9;
+h1 {
+    font-size: 32px;
 }
 
 body {
-    background-color: #afc6c9;
+    background-color: #9499af;
+}
+
+.content {
+    height: 768px;
+    width: 1024px;
+    margin: 0 auto;
+}
+
+.header {
+    color: #fff;
+    height: 60px;
+    border-bottom: 1px solid #8b8da4;
+}
+
+.dropdown {
+    color: #fff;
+    width: 1024px;
+    height: 80px;
+}
+
+.dropdown-title {
+}
+
+.dropdown-item {
+    display: inline;
+    width: 160px;
+    float: left;
+}
+
+.dropdown select {
+    width: 140px;
+}
+
+.charts {
+    background-color: #fff;
+}
+
+.actions {
+    background-color: #fff;
 }
