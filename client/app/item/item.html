@@ -66,16 +66,16 @@
 
   <div class="graph">
   </div>
-
 </div>
 
 <div class="actions">
-
   <div class="title">
     <h2>Action Required</h2>
   </div>
-
   <div class="actions-content">
+    <div ng-repeat="d in data | filter: {disabled: false} | orderBy: 'ActionOrder'" style="background: {{ d.actionColor }}">
+      {{ d.action }} {{ d.followUp }}
+      <!-- only one of these should show up -->
+    </div>
   </div>
-
 </div>
