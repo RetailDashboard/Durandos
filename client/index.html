@@ -13,6 +13,7 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(client) app/vendor.css -->
       <!-- bower:css -->
+      <link rel="stylesheet" href="bower_components/c3/c3.css" />
       <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,client}) app/app.css -->
@@ -71,16 +72,17 @@
       <!-- bower:js -->
       <script src="bower_components/jquery/dist/jquery.js"></script>
       <script src="bower_components/angular/angular.js"></script>
+      <script src="bower_components/json3/lib/json3.js"></script>
       <script src="bower_components/angular-resource/angular-resource.js"></script>
       <script src="bower_components/angular-cookies/angular-cookies.js"></script>
       <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
       <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
       <script src="bower_components/lodash/dist/lodash.compat.js"></script>
       <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-      <script src="bower_components/d3/d3.min.js"></script>
-      <script src="bower_components/c3/c3.min.js"></script>
-
+      <script src="bower_components/d3/d3.js"></script>
+      <script src="bower_components/c3/c3.js"></script>
       <!-- endbower -->
+      <script src="highcharts.src.js"></script>
     <!-- endbuild -->
 
         <!-- build:js({.tmp,client}) app/app.js -->
@@ -90,6 +92,8 @@
           <script src="app/brand/brand.js"></script>
           <script src="app/category/category.controller.js"></script>
           <script src="app/category/category.js"></script>
+          <script src="app/categoryMonth/categoryMonth.controller.js"></script>
+          <script src="app/categoryMonth/categoryMonth.js"></script>
           <script src="app/chartTest/chartTest.controller.js"></script>
           <script src="app/chartTest/chartTest.js"></script>
           <script src="app/department/department.controller.js"></script>

@@ -10,6 +10,7 @@ angular.module('retailDashboardApp', [
   'brandDataModule',
   'itemDataModule',
   'itemTacticDataModule',
+  'categoryMonthModule',
   'mainModule'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
