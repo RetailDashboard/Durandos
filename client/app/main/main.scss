@@ -12,7 +12,7 @@ body {
 }
 
 .content {
-    height: 768px;
+    height: 728px;
     width: 1024px;
     margin: 0 auto;
 }
@@ -22,10 +22,10 @@ body {
     margin-left: 20px;
     margin-right: 20px;
     color: #fff;
-    height: 56px;
-    padding-top: 16px;
-    padding-bottom: 16px;
-    border-bottom: 1px solid #8b8da4;
+    height: 54px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #9aafb2;
 }
 
 .dropdown {
@@ -34,23 +34,22 @@ body {
     color: #fff;
     width: 984px;
     height: 80px;
+    padding-top: 10px;
 }
 
 .dropdown-title {
-    font-size: 11px;
-    padding-bottom: 10px;
+    font-size: 12px;
+    padding-left: 6px;
+    padding-bottom: 8px;
 }
 
 .dropdown-item {
-    padding-top: 20px;
     display: inline;
     width: 160px;
     float: left;
 }
 
 .dropdown-item select {
-    padding: 10px;
-    font-size: 44px;
     width: 140px;
 }
 
@@ -63,8 +62,8 @@ body {
 }
 
 .chart {
-    height: 632px;
-    width: 731px;
+    height: 594px;
+    width: 732px;
     background-color: #fff;
     float: left;
     clear: left;
@@ -78,17 +77,42 @@ body {
     box-shadow: 0 0 8px #53849c;
 }
 
+.chart-content {
+    height: 432px;
+}
+
+.graph {
+    height: 122px;
+}
+
 .actions {
     float: right;
-    width: 230px;
-    height: 632px;
+    width: 232px;
+    height: 594px;
     background-color: #fff;
     display: inline;
 
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
 
     -webkit-box-shadow: 0 0 8px #53849c;
     box-shadow: 0 0 8px #53849c;
+}
+
+.title {
+    h2 {
+        font-weight: normal;
+        color: #555;
+        font-size: 20px;
+        padding: 0;
+        margin: 0;
+    }
+    background-color: #ddd;
+    height: 40px;
+    padding: 10px 0 10px 12px;
+
+    -moz-border-radius: 8px 8px 0 0;
+    -webkit-border-radius: 8px 8px 0 0;
+    border-radius: 8px 8px 0 0;
 }
