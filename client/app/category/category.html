@@ -1,25 +1,46 @@
 <div class="chart" ng-controller="CategoryCtrl">
+  
+  <div class="title">
+    <h2>Category</h2>
+  </div>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Num Events</th>
-    <th>Inc Sales</th>
-    <th>Inc Vol</th>
-    <th>Inc Marg</th>
-    <th>Inc Prof</th>
-    <th>Inc Trans</th>
-    <th>Basket Sales Impact</th>
-  </tr>
-  <tr ng-repeat="d in data">
-    <td>{{ d.item }}</td>
-    <td>{{ d.numEvents }}</td>
-    <td>{{ d.sales }}</td>
-    <td>{{ d.volume }}</td>
-    <td>{{ d.margin }}</td>
-    <td>{{ d.profit }}</td>
-    <td>{{ d.transactions }}</td>
-    <td>{{ d.impact }}</td>
-  </tr>
-</table>
+  <div class="chart-content">
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Num Events</th>
+        <th>Inc Sales</th>
+        <th>Inc Vol</th>
+        <th>Inc Marg</th>
+        <th>Inc Prof</th>
+        <th>Inc Trans</th>
+        <th>Basket Sales Impact</th>
+      </tr>
+      <tr ng-repeat="d in data">
+        <td>{{ d.item }}</td>
+        <td>{{ d.numEvents }}</td>
+        <td>{{ d.sales }}</td>
+        <td>{{ d.volume }}</td>
+        <td>{{ d.margin }}</td>
+        <td>{{ d.profit }}</td>
+        <td>{{ d.transactions }}</td>
+        <td>{{ d.impact }}</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="graph">
+  </div>
+
+</div>
+
+<div class="actions">
+
+  <div class="title">
+    <h2>Action Required</h2>
+  </div>
+
+  <div class="actions-content">
+  </div>
+
 </div>

@@ -3,7 +3,6 @@
 angular.module('mainModule', ['mainService'])
   .controller('MainCtrl', function($scope, $state, DataItems, DataBrands, DataCategories, DataItemTactics) {
   $scope.all = 'All';
-  $scope.state = $state;
   //ng-model is assigned to null but changes upon selection this model is used to filter the data
   $scope.selectedDepartment = null;
   $scope.selectedCategory = null;
