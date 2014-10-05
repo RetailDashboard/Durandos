@@ -56,85 +56,116 @@ angular.module('mainModule', ['mainService'])
       $scope.disableDropdowns();
     }else{
       $scope.disableCategory = false;
-      $state.go('main.category');  
+      $state.go('main.category',{
+        departmentName : eliminateSpaces(selection.name)
+      });  
     }
   };
 
   $scope.changeCategory = function() {
-    var selection = $scope.selectedCategory;
-    if(selection){
-      //similar to the brand filter, but finds out if there is anything
-      //in the neighboring dropdown menu, if not, it disables it.
-      var filteredBrands = $scope.displayBrands.filter(function(val){
-        if(val.Category === selection.id){
-        return val;
+    //refresh data from server
+    DataBrands.getBrandData().$promise.then(function(responseData) {
+      $scope.displayBrands = responseData;
+      var selection = $scope.selectedCategory;
+      //something was selected in the dropdown
+      if(selection){
+        //finds out if there is anything in the neighboring dropdown menu
+        var filteredBrands = $scope.displayBrands.filter(function(val) {
+          return val.Category === selection.id;
+        });
+        //no brands are in this category, so disable neighboring dropdowns
+        if(filteredBrands.length === 0){
+          $scope.disableBrand = true;
+          $scope.selectedBrand = null;
+          $scope.disableDropdowns();
+        //otherwise, update brands that belong to category selection
+        }else{
+          $scope.displayBrands = filteredBrands;
+          $scope.disableBrand = false;
+          $scope.selectedBrand = null;
+          $scope.disableDropdowns();
+          $state.go('main.brand',{
+            departmentName: eliminateSpaces($scope.selectedDepartment.name),
+            categoryName: eliminateSpaces(selection.item)
+            });
         }
-      });
-      //no brands are in this category
-      if(filteredBrands.length === 0){
-        //???????????????????perhaps update $scope.displayBrands in this if/else?
-        $scope.disableBrand = true;
-        $scope.selectedBrand = null;
-        $scope.disableDropdowns();
+      //nothing selected, change state and check dropdowns 
       }else{
-        $scope.disableBrand = false;
-        $scope.selectedBrand = null;
+        $state.go('main.category',{
+          departmentName: eliminateSpaces($scope.selectedDepartment.name)
+        });
         $scope.disableDropdowns();
-        $state.go('main.brand');
       }
-    //nothing selected, change state and check dropdowns 
-    }else{
-      $state.go('main.brand');
-      $scope.disableDropdowns();
-    }
+    });
   };
   //same flow as changeCategory
   $scope.changeBrand = function() {
-    var selection = $scope.selectedBrand;
-    if(selection){
-      var filteredItems = $scope.displayItems.filter(function(val){
-        if(val.brand === selection.id){
-        return val;
+    DataItems.getItemData().$promise.then(function(responseData) {
+      $scope.displayItems = responseData;
+      var selection = $scope.selectedBrand;
+      if(selection){
+        var filteredItems = $scope.displayItems.filter(function(val) {
+          return val.brand === selection.id;
+        });
+        if(filteredItems.length === 0){
+          $scope.disableItem = true;
+          $scope.selectedItem = null;
+          $scope.disableDropdowns();
+        }else{
+          $scope.displayItems = filteredItems;
+          $scope.disableItem = false;
+          $scope.selectedItem = null;
+          $scope.disableDropdowns();
+          $state.go('main.item',{
+            departmentName: eliminateSpaces($scope.selectedDepartment.name),
+            categoryName: eliminateSpaces($scope.selectedCategory.item),
+            brandName: eliminateSpaces(selection.item)
+          });
         }
-      });
-      if(filteredItems.length === 0){
-        $scope.disableItem = true;
-        $scope.selectedItem = null;
+      }else{ 
+        $state.go('main.brand',{
+          departmentName: eliminateSpaces($scope.selectedDepartment.name),
+          categoryName: eliminateSpaces($scope.selectedCategory.item)
+        });
         $scope.disableDropdowns();
-      }else{
-        $scope.disableItem = false;
-        $scope.selectedItem = null;
-        $scope.disableDropdowns();
-        $state.go('main.item');
       }
-    }else{ 
-      $state.go('main.item');
-      $scope.disableDropdowns();
-    }
+    });
   };
 
   $scope.changeItem = function() {
-    var selection = $scope.selectedItem;
-    if(selection){  
-      var filteredTactics = $scope.displayTactics.filter(function(val){
-        if(val.item === selection.item){
-        return val;
+    DataItemTactics.getItemTacticData().$promise.then(function(responseData) {
+      $scope.displayTactics = responseData;
+      var selection = $scope.selectedItem;
+      if(selection){  
+        var filteredTactics = $scope.displayTactics.filter(function(val) {
+          if(val.item === selection.item){
+          return val;
+          }
+        });
+        if(filteredTactics.length === 0){
+          $scope.disableTactic = true;
+          $scope.selectedTactic = null;
+          $scope.disableDropdowns();
+        }else{
+          $scope.disableTactic = false;
+          $scope.selectedTactic = null;
+          $scope.disableDropdowns();
+          $state.go('main.itemTactic',{
+            departmentName: eliminateSpaces($scope.selectedDepartment.name),
+            categoryName: eliminateSpaces($scope.selectedCategory.item),
+            brandName: eliminateSpaces($scope.selectedBrand.item),
+            itemName: eliminateSpaces(selection.item)
+          });
         }
-      });
-      if(filteredTactics.length === 0){
-        $scope.disableTactic = true;
-        $scope.selectedTactic = null;
-        $scope.disableDropdowns();
       }else{
-        $scope.disableTactic = false;
-        $scope.selectedTactic = null;
-        $scope.disableDropdowns();
-        $state.go('main.itemTactic');
+        $state.go('main.item',{
+          departmentName: eliminateSpaces($scope.selectedDepartment.name),
+          categoryName: eliminateSpaces($scope.selectedCategory.item),
+          brandName: eliminateSpaces($scope.selectedBrand.item)
+        });
+        $scope.disableDropdowns();  
       }
-    }else{
-      $state.go('main.itemTactic');
-      $scope.disableDropdowns();  
-    }
+    });
   };
 
   $scope.changeTactic = function() {
@@ -143,64 +174,37 @@ angular.module('mainModule', ['mainService'])
 
 })
 //filters written to handle each data selection
-.filter('brandFilter', function(){
-  return function(items, selectedCategory){
-    if(selectedCategory){
-      var results = items.filter(function(val){
-        if(val.Category === selectedCategory.id){
-        return val;
-        }
+.filter('brandFilter', function() {
+  return function(items, selectedCategory) {
+    if(selectedCategory){ 
+      return items.filter(function(val) {
+        return val.Category === selectedCategory.id;
       });
-      return results;
     }
   };
 })
 
-.filter('itemFilter', function(){
-  return function(items, selectedBrand){
+.filter('itemFilter', function() {
+  return function(items, selectedBrand) {
     if(selectedBrand){
-      var results = items.filter(function(val){
-        if(val.brand === selectedBrand.id){
-        return val;
-        }
+      return items.filter(function(val) {
+        return val.brand === selectedBrand.id;
       });
-      return results;
     }
   };
 })
 
-.filter('tacticFilter', function(){
-  return function(items, selectedItem){
+.filter('tacticFilter', function() {
+  return function(items, selectedItem) {
     if(selectedItem){
-      var results = items.filter(function(val){
-        if(val.item === selectedItem.item){
-        return val;
-        }
+      return items.filter(function(val) {
+        return val.item === selectedItem.item;
       });
-      return results;
     }
   };
 });
 
+var eliminateSpaces = function(string) {
+  return string.split(' ').join('_');
+};
 
-
-
-
-    // $scope.awesomeThings = [];
-
-    // $http.get('/api/things').success(function(awesomeThings) {
-    //   $scope.awesomeThings = awesomeThings;
-    // });
-
-    // $scope.addThing = function() {
-    //   if($scope.newThing === '') {
-    //     return;
-    //   }
-    //   $http.post('/api/things', { name: $scope.newThing });
-    //   $scope.newThing = '';
-    // };
-
-    // $scope.deleteThing = function(thing) {
-    //   $http.delete('/api/things/' + thing._id);
-    // };
-//
