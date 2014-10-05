@@ -57,7 +57,7 @@ angular.module('mainModule', ['mainService'])
     }else{
       $scope.disableCategory = false;
       $state.go('main.category',{
-        departmentName : selection.name
+        departmentName : eleminateSpaces(selection.name)
       });  
     }
   };
@@ -83,8 +83,8 @@ angular.module('mainModule', ['mainService'])
           $scope.selectedBrand = null;
           $scope.disableDropdowns();
           $state.go('main.brand',{
-            departmentName: $scope.selectedDepartment.name,
-            categoryName: selection.item
+            departmentName: eleminateSpaces($scope.selectedDepartment.name),
+            categoryName: eleminateSpaces(selection.item)
             });
         }
       //nothing selected, change state and check dropdowns 
@@ -115,15 +115,15 @@ angular.module('mainModule', ['mainService'])
           $scope.selectedItem = null;
           $scope.disableDropdowns();
           $state.go('main.item',{
-            departmentName: $scope.selectedDepartment.name,
-            categoryName: $scope.selectedCategory.item,
-            brandName: selection.item
+            departmentName: eleminateSpaces($scope.selectedDepartment.name),
+            categoryName: eleminateSpaces($scope.selectedCategory.item),
+            brandName: eleminateSpaces(selection.item)
           });
         }
       }else{ 
         $state.go('main.brand',{
-          departmentName: $scope.selectedDepartment.name,
-          categoryName: $scope.selectedCategory.item
+          departmentName: eleminateSpaces($scope.selectedDepartment.name),
+          categoryName: eleminateSpaces($scope.selectedCategory.item)
         });
         $scope.disableDropdowns();
       }
@@ -149,17 +149,17 @@ angular.module('mainModule', ['mainService'])
           $scope.selectedTactic = null;
           $scope.disableDropdowns();
           $state.go('main.itemTactic',{
-            departmentName: $scope.selectedDepartment.name,
-            categoryName: $scope.selectedCategory.item,
-            brandName: $scope.selectedBrand.item,
-            itemName: selection.item
+            departmentName: eleminateSpaces($scope.selectedDepartment.name),
+            categoryName: eleminateSpaces($scope.selectedCategory.item),
+            brandName: eleminateSpaces($scope.selectedBrand.item),
+            itemName: eleminateSpaces(selection.item)
           });
         }
       }else{
         $state.go('main.item',{
-          departmentName: $scope.selectedDepartment.name,
-          categoryName: $scope.selectedCategory.item,
-          brandName: $scope.selectedBrand.item
+          departmentName: eleminateSpaces($scope.selectedDepartment.name),
+          categoryName: eleminateSpaces($scope.selectedCategory.item),
+          brandName: eleminateSpaces($scope.selectedBrand.item)
         });
         $scope.disableDropdowns();  
       }
@@ -211,6 +211,9 @@ angular.module('mainModule', ['mainService'])
   };
 });
 
+var eleminateSpaces = function(string){
+  return string.split(' ').join('_');
+};
 
 
 
