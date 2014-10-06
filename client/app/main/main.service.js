@@ -2,12 +2,12 @@
 
 angular.module('mainService', ['ngResource'])
 
-.factory('DataBrands', function ($resource) {
-    return $resource('/api/brands', {
+  .factory('DataDepartments', function ($resource) {
+    return $resource('/api/departments', {
       id: '@_id'
     },
     {
-      getBrandData:{
+      getDepartmentData:{
       method: 'GET',
       isArray: true
     }
@@ -19,6 +19,17 @@ angular.module('mainService', ['ngResource'])
     },
     {
       getCategoryData:{
+      method: 'GET',
+      isArray: true
+    }
+    });
+  })
+.factory('DataBrands', function ($resource) {
+    return $resource('/api/brands', {
+      id: '@_id'
+    },
+    {
+      getBrandData:{
       method: 'GET',
       isArray: true
     }
