@@ -57,40 +57,42 @@ angular.module('mainModule', ['mainService'])
     }else{
       $scope.disableCategory = false;
       $state.go('main.category',{
-        departmentName : selection.name
+        departmentName : eliminateSpaces(selection.name)
       });  
     }
   };
 
   $scope.changeCategory = function() {
-    DataBrands.getBrandData().$promise.then(function(responseData){
+    //refresh data from server
+    DataBrands.getBrandData().$promise.then(function(responseData) {
       $scope.displayBrands = responseData;
       var selection = $scope.selectedCategory;
+      //something was selected in the dropdown
       if(selection){
-        //similar to the brand filter, but finds out if there is anything
-        //in the neighboring dropdown menu, if not, it disables it.
-        var filteredBrands = $scope.displayBrands.filter(function(val){
+        //finds out if there is anything in the neighboring dropdown menu
+        var filteredBrands = $scope.displayBrands.filter(function(val) {
           return val.Category === selection.id;
         });
-        //no brands are in this category
+        //no brands are in this category, so disable neighboring dropdowns
         if(filteredBrands.length === 0){
           $scope.disableBrand = true;
           $scope.selectedBrand = null;
           $scope.disableDropdowns();
+        //otherwise, update brands that belong to category selection
         }else{
           $scope.displayBrands = filteredBrands;
           $scope.disableBrand = false;
           $scope.selectedBrand = null;
           $scope.disableDropdowns();
           $state.go('main.brand',{
-            departmentName: $scope.selectedDepartment.name,
-            categoryName: selection.item
+            departmentName: eliminateSpaces($scope.selectedDepartment.name),
+            categoryName: eliminateSpaces(selection.item)
             });
         }
       //nothing selected, change state and check dropdowns 
       }else{
         $state.go('main.category',{
-          departmentName: $scope.selectedDepartment.name
+          departmentName: eliminateSpaces($scope.selectedDepartment.name)
         });
         $scope.disableDropdowns();
       }
@@ -98,11 +100,11 @@ angular.module('mainModule', ['mainService'])
   };
   //same flow as changeCategory
   $scope.changeBrand = function() {
-    DataItems.getItemData().$promise.then(function(responseData){
+    DataItems.getItemData().$promise.then(function(responseData) {
       $scope.displayItems = responseData;
       var selection = $scope.selectedBrand;
       if(selection){
-        var filteredItems = $scope.displayItems.filter(function(val){
+        var filteredItems = $scope.displayItems.filter(function(val) {
           return val.brand === selection.id;
         });
         if(filteredItems.length === 0){
@@ -115,15 +117,15 @@ angular.module('mainModule', ['mainService'])
           $scope.selectedItem = null;
           $scope.disableDropdowns();
           $state.go('main.item',{
-            departmentName: $scope.selectedDepartment.name,
-            categoryName: $scope.selectedCategory.item,
-            brandName: selection.item
+            departmentName: eliminateSpaces($scope.selectedDepartment.name),
+            categoryName: eliminateSpaces($scope.selectedCategory.item),
+            brandName: eliminateSpaces(selection.item)
           });
         }
       }else{ 
         $state.go('main.brand',{
-          departmentName: $scope.selectedDepartment.name,
-          categoryName: $scope.selectedCategory.item
+          departmentName: eliminateSpaces($scope.selectedDepartment.name),
+          categoryName: eliminateSpaces($scope.selectedCategory.item)
         });
         $scope.disableDropdowns();
       }
@@ -131,11 +133,11 @@ angular.module('mainModule', ['mainService'])
   };
 
   $scope.changeItem = function() {
-    DataItemTactics.getItemTacticData().$promise.then(function(responseData){
+    DataItemTactics.getItemTacticData().$promise.then(function(responseData) {
       $scope.displayTactics = responseData;
       var selection = $scope.selectedItem;
       if(selection){  
-        var filteredTactics = $scope.displayTactics.filter(function(val){
+        var filteredTactics = $scope.displayTactics.filter(function(val) {
           if(val.item === selection.item){
           return val;
           }
@@ -149,17 +151,17 @@ angular.module('mainModule', ['mainService'])
           $scope.selectedTactic = null;
           $scope.disableDropdowns();
           $state.go('main.itemTactic',{
-            departmentName: $scope.selectedDepartment.name,
-            categoryName: $scope.selectedCategory.item,
-            brandName: $scope.selectedBrand.item,
-            itemName: selection.item
+            departmentName: eliminateSpaces($scope.selectedDepartment.name),
+            categoryName: eliminateSpaces($scope.selectedCategory.item),
+            brandName: eliminateSpaces($scope.selectedBrand.item),
+            itemName: eliminateSpaces(selection.item)
           });
         }
       }else{
         $state.go('main.item',{
-          departmentName: $scope.selectedDepartment.name,
-          categoryName: $scope.selectedCategory.item,
-          brandName: $scope.selectedBrand.item
+          departmentName: eliminateSpaces($scope.selectedDepartment.name),
+          categoryName: eliminateSpaces($scope.selectedCategory.item),
+          brandName: eliminateSpaces($scope.selectedBrand.item)
         });
         $scope.disableDropdowns();  
       }
@@ -172,64 +174,37 @@ angular.module('mainModule', ['mainService'])
 
 })
 //filters written to handle each data selection
-.filter('brandFilter', function(){
-  return function(items, selectedCategory){
-    if(selectedCategory){
-      var results = items.filter(function(val){
-        if(val.Category === selectedCategory.id){
-        return val;
-        }
+.filter('brandFilter', function() {
+  return function(items, selectedCategory) {
+    if(selectedCategory){ 
+      return items.filter(function(val) {
+        return val.Category === selectedCategory.id;
       });
-      return results;
     }
   };
 })
 
-.filter('itemFilter', function(){
-  return function(items, selectedBrand){
+.filter('itemFilter', function() {
+  return function(items, selectedBrand) {
     if(selectedBrand){
-      var results = items.filter(function(val){
-        if(val.brand === selectedBrand.id){
-        return val;
-        }
+      return items.filter(function(val) {
+        return val.brand === selectedBrand.id;
       });
-      return results;
     }
   };
 })
 
-.filter('tacticFilter', function(){
-  return function(items, selectedItem){
+.filter('tacticFilter', function() {
+  return function(items, selectedItem) {
     if(selectedItem){
-      var results = items.filter(function(val){
-        if(val.item === selectedItem.item){
-        return val;
-        }
+      return items.filter(function(val) {
+        return val.item === selectedItem.item;
       });
-      return results;
     }
   };
 });
 
+var eliminateSpaces = function(string) {
+  return string.split(' ').join('_');
+};
 
-
-
-
-    // $scope.awesomeThings = [];
-
-    // $http.get('/api/things').success(function(awesomeThings) {
-    //   $scope.awesomeThings = awesomeThings;
-    // });
-
-    // $scope.addThing = function() {
-    //   if($scope.newThing === '') {
-    //     return;
-    //   }
-    //   $http.post('/api/things', { name: $scope.newThing });
-    //   $scope.newThing = '';
-    // };
-
-    // $scope.deleteThing = function(thing) {
-    //   $http.delete('/api/things/' + thing._id);
-    // };
-//
