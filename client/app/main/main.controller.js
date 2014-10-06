@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('mainModule', ['mainService'])
-  .controller('MainCtrl', function($scope, $state, DataItems, DataBrands, DataCategories, DataItemTactics) {
+  .controller('MainCtrl', function($scope, $state, DataDepartments, DataCategories, DataBrands, DataItems, DataItemTactics) {
   $scope.all = 'All';
   //ng-model is assigned to null but changes upon selection this model is used to filter the data
   $scope.selectedDepartment = null;
@@ -16,16 +16,12 @@ angular.module('mainModule', ['mainService'])
   $scope.disableTactic = true;
 
   //data fetched from DB to populate dropdowns
+  $scope.displayDepartments = DataDepartments.getDepartmentData();
   $scope.displayCategories = DataCategories.getCategoryData(); 
   $scope.displayBrands = DataBrands.getBrandData();
   $scope.displayItems = DataItems.getItemData();
   $scope.displayTactics = DataItemTactics.getItemTacticData();
-  //dummy department data
-  $scope.departments = [
-    {name: 'Dry Goods'},
-    {name:'Frozen Food'},
-    {name:'Electronics'}
-  ];
+
   //disables dropdowns if preceding dropdown is not active
   $scope.disableDropdowns = function() {
     if($scope.selectedDepartment === null){
@@ -49,7 +45,8 @@ angular.module('mainModule', ['mainService'])
   $scope.changeDepartment = function() {
     //model of what was selected in the dropdown
     var selection = $scope.selectedDepartment;
-    if(selection === null || selection.name !== 'Dry Goods'){
+    console.log(selection);
+    if(selection === null || selection.item !== 'Dry Goods*'){
       $state.go('main.department');
     //if the model ever evaluates to null this must be called to ensure
     //all following dropdowns are disabled after it.  
@@ -57,7 +54,7 @@ angular.module('mainModule', ['mainService'])
     }else{
       $scope.disableCategory = false;
       $state.go('main.category',{
-        departmentName : eliminateSpaces(selection.name)
+        departmentName : eliminateSpaces(selection.item)
       });  
     }
   };
@@ -85,14 +82,14 @@ angular.module('mainModule', ['mainService'])
           $scope.selectedBrand = null;
           $scope.disableDropdowns();
           $state.go('main.brand',{
-            departmentName: eliminateSpaces($scope.selectedDepartment.name),
+            departmentName: eliminateSpaces($scope.selectedDepartment.item),
             categoryName: eliminateSpaces(selection.item)
             });
         }
       //nothing selected, change state and check dropdowns 
       }else{
         $state.go('main.category',{
-          departmentName: eliminateSpaces($scope.selectedDepartment.name)
+          departmentName: eliminateSpaces($scope.selectedDepartment.item)
         });
         $scope.disableDropdowns();
       }
@@ -117,14 +114,14 @@ angular.module('mainModule', ['mainService'])
           $scope.selectedItem = null;
           $scope.disableDropdowns();
           $state.go('main.item',{
-            departmentName: eliminateSpaces($scope.selectedDepartment.name),
+            departmentName: eliminateSpaces($scope.selectedDepartment.item),
             categoryName: eliminateSpaces($scope.selectedCategory.item),
             brandName: eliminateSpaces(selection.item)
           });
         }
       }else{ 
         $state.go('main.brand',{
-          departmentName: eliminateSpaces($scope.selectedDepartment.name),
+          departmentName: eliminateSpaces($scope.selectedDepartment.item),
           categoryName: eliminateSpaces($scope.selectedCategory.item)
         });
         $scope.disableDropdowns();
@@ -151,7 +148,7 @@ angular.module('mainModule', ['mainService'])
           $scope.selectedTactic = null;
           $scope.disableDropdowns();
           $state.go('main.itemTactic',{
-            departmentName: eliminateSpaces($scope.selectedDepartment.name),
+            departmentName: eliminateSpaces($scope.selectedDepartment.item),
             categoryName: eliminateSpaces($scope.selectedCategory.item),
             brandName: eliminateSpaces($scope.selectedBrand.item),
             itemName: eliminateSpaces(selection.item)
@@ -159,7 +156,7 @@ angular.module('mainModule', ['mainService'])
         }
       }else{
         $state.go('main.item',{
-          departmentName: eliminateSpaces($scope.selectedDepartment.name),
+          departmentName: eliminateSpaces($scope.selectedDepartment.item),
           categoryName: eliminateSpaces($scope.selectedCategory.item),
           brandName: eliminateSpaces($scope.selectedBrand.item)
         });

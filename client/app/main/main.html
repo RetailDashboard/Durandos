@@ -8,7 +8,7 @@
     
     <div class="department dropdown-item">
       <div class="dropdown-title">DEPARTMENT</div>
-      <select ng-model="selectedDepartment" ng-options="department.name for department in departments" ng-change="changeDepartment()">
+      <select ng-model="selectedDepartment" ng-options="department.item for department in displayDepartments" ng-change="changeDepartment()">
         <option value="">Department</option>
       </select>
     </div>
