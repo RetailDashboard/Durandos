@@ -1,36 +1,48 @@
-<div class="col-md-12">
-This is the chartTest view.
+<div class="chart" ng-controller="CharttestCtrl">
+
+  <div class="title">
+    <h2>Category</h2>
+  </div>
+<div class='row'>
+  <!-- <div class='container'> -->
+    <span id='chart1'></span>
+  <!-- </div> -->
+  <!-- <div class='container'> -->
+    <span id='chart2'></span>
+  <!-- </div> -->
+  <!-- <div class='container'> -->
+    <span id='chart3'></span>
+  <!-- </div> -->
+  <!-- <div class='container'> -->
+    <span id='chart4'></span>
+  <!-- </div> -->
+  <!-- <div class='container'> -->
+    <span id='chart5'></span>
+  <!-- </div> -->
+  <!-- <div class='container'> -->
+    <span id='chart6'></span>
+  <!-- </div> -->
+  <!-- <div class='container'> -->
+    <span id='chart7'></span>
+  <!-- </div> -->
 </div>
 
+  <div class="graph">
+  </div>
 
-<div class="col-md-12" ng-controller="CharttestCtrl">
+</div>
 
-  <table>
-    <tr>
-      <th>Name</th>
-      <th>Num Events</th>
-      <th>Inc Sales</th>
-      <th>Inc Vol</th>
-      <th>Inc Marg</th>
-      <th>Inc Prof</th>
-      <th>Inc Trans</th>
-      <th>Basket Sales Impact</th>
-    </tr>
-    <tr ng-repeat="d in data">
-      <td>{{ d.item }}</td>
-      <td>{{ d.numEvents }}</td>
-      <td>{{ d.sales }}</td>
-      <td>{{ d.volume }}</td>
-      <td>{{ d.margin }}</td>
-      <td>{{ d.profit }}</td>
-      <td>{{ d.transactions }}</td>
-      <td>{{ d.impact }}</td>
-    </tr>
-  </table>
+<div class="actions">
 
-    <div class='container'>
-  <p>a chart will go down here:</p>
-    <div id='chart'></div>
+  <div class="title">
+    <h2>Action Required</h2>
+  </div>
+
+  <div class="actions-content">
+    <div ng-repeat="d in data | filter: {disabled: false} | orderBy: 'ActionOrder'" style="background: {{ d.actionColor }}">
+      {{ d.action }} {{ d.followUp }}
+      <!-- only one of these should show up -->
+    </div>
   </div>
 
 </div>
