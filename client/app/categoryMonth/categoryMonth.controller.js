@@ -115,4 +115,9 @@ angular.module('categoryMonthModule', ['ngResource'])
       }
     );
   })
-  ;
+  .directive('categoryMonth', function() {
+    return {
+      template:'<div ng-controller="CategoryMonthCtrl"><div id="lineGraph" style="width: 800px; height: 125px; margin: 0 auto"></div></div>',
+      restrict: 'A'
+    };
+  });
