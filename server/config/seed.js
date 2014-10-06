@@ -147,7 +147,7 @@ Brand.find({}).remove(function() {
   Brand.create({
     id:2,
     Category:1,
-    item:"Christophers",
+    item:"Christophers*",
     numberEvents:27,
     IncSalesMin:98,
     IncSalesMax:169,
@@ -169,7 +169,7 @@ Brand.find({}).remove(function() {
   {
     id:0,
     Category:1,
-    item:"Gidd",
+    item:"Gidd*",
     numberEvents:20,
     IncSalesMin:102,
     IncSalesMax:236,
@@ -191,7 +191,7 @@ Brand.find({}).remove(function() {
   {
     id:3,
     Category:1,
-    item:"Sureseal*",
+    item:"Sureseal",
     numberEvents:15,
     IncSalesMin:36,
     IncSalesMax:76,
@@ -213,7 +213,7 @@ Brand.find({}).remove(function() {
   {
     id:1,
     Category:1,
-    item:"Private Brand*",
+    item:"Private Brand",
     numberEvents:14,
     IncSalesMin:23,
     IncSalesMax:62,
@@ -235,7 +235,7 @@ Brand.find({}).remove(function() {
   {
     id:5,
     Category:8,
-    item:"Common Presses",
+    item:"Common Presses*",
     numberEvents:86,
     IncSalesMin:1,
     IncSalesMax:143,
@@ -256,7 +256,7 @@ Brand.find({}).remove(function() {
   {
     id:6,
     Category:8,
-    item:"Shelly*",
+    item:"Shelly",
     numberEvents:75,
     IncSalesMin:2,
     IncSalesMax:321,
@@ -278,7 +278,7 @@ Brand.find({}).remove(function() {
   {
     id:7,
     Category:8,
-    item:"Post*",
+    item:"Post",
     numberEvents:30,
     IncSalesMin:-1,
     IncSalesMax:229,
@@ -300,7 +300,7 @@ Brand.find({}).remove(function() {
   {
     id:9,
     Category:8,
-    item:"Private Brand*",
+    item:"Private Brand",
     numberEvents:28,
     IncSalesMin:-2,
     IncSalesMax:42,
@@ -322,7 +322,7 @@ Brand.find({}).remove(function() {
   {
     id:8,
     Category:8,
-    item:"EcoPro*",
+    item:"EcoPro",
     numberEvents:23,
     IncSalesMin:0,
     IncSalesMax:187,
@@ -344,7 +344,7 @@ Brand.find({}).remove(function() {
   {
     id:4,
     Category:8,
-    item:"Arrow Head*",
+    item:"Arrow Head",
     numberEvents:11,
     IncSalesMin:3,
     IncSalesMax:93,
@@ -366,7 +366,7 @@ Brand.find({}).remove(function() {
   {
     id:14,
     Category:5,
-    item:"Brads",
+    item:"Brads*",
     numberEvents:154,
     IncSalesMin:-43,
     IncSalesMax:125,
@@ -388,7 +388,7 @@ Brand.find({}).remove(function() {
   {
     id:13,
     Category:5,
-    item:"Shelly*",
+    item:"Shelly",
     numberEvents:126,
     IncSalesMin:-12,
     IncSalesMax:81,
@@ -410,7 +410,7 @@ Brand.find({}).remove(function() {
   {
     id:10,
     Category:5,
-    item:"Archway*",
+    item:"Archway",
     numberEvents:45,
     IncSalesMin:-1,
     IncSalesMax:5,
@@ -432,7 +432,7 @@ Brand.find({}).remove(function() {
   {
     id:15,
     Category:5,
-    item:"Big Bob*",
+    item:"Big Bob",
     numberEvents:26,
     IncSalesMin:2,
     IncSalesMax:16,
@@ -454,7 +454,7 @@ Brand.find({}).remove(function() {
   {
     id:16,
     Category:5,
-    item:"Shana's*",
+    item:"Shana's",
     numberEvents:25,
     IncSalesMin:1,
     IncSalesMax:3,
@@ -476,7 +476,7 @@ Brand.find({}).remove(function() {
   {
     id:11,
     Category:5,
-    item:"CookieFactory*",
+    item:"CookieFactory",
     numberEvents:17,
     IncSalesMin:-2,
     IncSalesMax:10,
@@ -498,7 +498,7 @@ Brand.find({}).remove(function() {
   {
     id:18,
     Category:5,
-    item:"Voortman*",
+    item:"Voortman",
     numberEvents:17,
     IncSalesMin:-4,
     IncSalesMax:5,
@@ -520,7 +520,7 @@ Brand.find({}).remove(function() {
   {
     id:19,
     Category:5,
-    item:"World Table*",
+    item:"World Table",
     numberEvents:16,
     IncSalesMin:-6,
     IncSalesMax:31,
@@ -542,7 +542,7 @@ Brand.find({}).remove(function() {
   {
     id:17,
     Category:5,
-    item:"Crystal Farm*",
+    item:"Crystal Farm",
     numberEvents:14,
     IncSalesMin:-1,
     IncSalesMax:25,
@@ -564,7 +564,7 @@ Brand.find({}).remove(function() {
   {
     id:12,
     Category:5,
-    item:"Private Brand*",
+    item:"Private Brand",
     numberEvents:10,
     IncSalesMin:4,
     IncSalesMax:11,
