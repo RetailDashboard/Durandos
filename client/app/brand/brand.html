@@ -47,13 +47,23 @@
 <div class="actions">
 
   <div class="title">
-    <h2>Action Required</h2>
+    <div class="actions-title-text">
+      <h2>Action Required</h2>
+    </div>
+    <div class="actions-glyph">
+      <div class="actions-number">
+        {{ data.length }}
+      </div>
+    </div>
   </div>
 
   <div class="actions-content">
-    <div ng-repeat="d in data | filter: {disabled: false} | orderBy: 'ActionOrder'" style="background: {{ d.actionColor }}">
+    <div ng-repeat="d in data | filter: {disabled: false} | orderBy: 'ActionOrder'" class="{{ d.actionColor }}">
+      <div class="action-info">
       {{ d.action }} {{ d.followUp }}
+      </div>
       <!-- only one of these should show up -->
+      <div class="expand"></div>
     </div>
   </div>
 
