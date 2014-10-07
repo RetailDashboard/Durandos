@@ -121,30 +121,30 @@ body {
 
 .dropdown-glyph-on {
     background-color: #4a5555;
-    margin-top: -2px;
-    margin-left: 16px;
+    margin-top: -3px;
+    margin-left: 12px;
     height: 20px;
     width: 20px;
     border-radius: 10px;
     float: left;
 
-    -webkit-box-shadow: 0px -1px 1px 0px #323939;
-    -moz-box-shadow: 0px -1px 1px 0px #323939;
-    box-shadow: 0px -1px 1px 0px #323939;
+    //-webkit-box-shadow: 0px -1px 1px 0px #323939;
+    //-moz-box-shadow: 0px -1px 1px 0px #323939;
+    //box-shadow: 0px -1px 1px 0px #323939;
 }
 
 .dropdown-glyph-off {
     background-color: #829496;
-    margin-top: -2px;
-    margin-left: 16px;
+    margin-top: -3px;
+    margin-left: 12px;
     height: 20px;
     width: 20px;
     border-radius: 10px;
     float: left;
 
-    -webkit-box-shadow: 0px -1px 1px 0px #748385;
-    -moz-box-shadow: 0px -1px 1px 0px #748385;
-    box-shadow: 0px -1px 1px 0px #748385;
+    //-webkit-box-shadow: 0px -1px 1px 0px #748385;
+    //-moz-box-shadow: 0px -1px 1px 0px #748385;
+    //box-shadow: 0px -1px 1px 0px #748385;
 }
 
 .dropdown-glyph-arrow {
@@ -256,4 +256,42 @@ body {
     font-size: 16px;
     line-height: 18px;
     text-align: center;
+}
+
+.actions-content {
+    padding: 10px;
+}
+
+.action-info {
+    width: 172px;
+}
+
+.green {
+    font-size: 12px;
+    width: 212px;
+    padding: 8px;
+    background-color: #f1f6e9;
+    border-radius: 8px;
+    border: 1px solid #8dc63f;
+    margin-bottom: 8px;
+}
+
+.red {
+    font-size: 12px;
+    width: 212px;
+    padding: 8px;
+    background-color: #ffeeee;
+    border-radius: 8px;
+    border: 1px solid #ff0000;
+    margin-bottom: 8px;
+}
+
+.yellow {
+    font-size: 12px;
+    width: 212px;
+    padding: 8px;
+    background-color: #fffcdd;
+    border-radius: 8px;
+    border: 1px solid #d9cb00;
+    margin-bottom: 8px;
 }
