@@ -41,16 +41,18 @@ body {
     font-size: 12px;
     padding-left: 6px;
     padding-bottom: 8px;
+    float: left;
 }
 
 .dropdown-item {
     display: inline;
-    width: 160px;
+    width: 168px;
     float: left;
 }
 
 .dropdown-item select {
-    width: 140px;
+    width: 144px;
+    height: 32px;
 }
 
 .charts-actions {
@@ -115,4 +117,143 @@ body {
     -moz-border-radius: 8px 8px 0 0;
     -webkit-border-radius: 8px 8px 0 0;
     border-radius: 8px 8px 0 0;
+}
+
+.dropdown-glyph-on {
+    background-color: #4a5555;
+    margin-top: -2px;
+    margin-left: 16px;
+    height: 20px;
+    width: 20px;
+    border-radius: 10px;
+    float: left;
+
+    -webkit-box-shadow: 0px -1px 1px 0px #323939;
+    -moz-box-shadow: 0px -1px 1px 0px #323939;
+    box-shadow: 0px -1px 1px 0px #323939;
+}
+
+.dropdown-glyph-off {
+    background-color: #829496;
+    margin-top: -2px;
+    margin-left: 16px;
+    height: 20px;
+    width: 20px;
+    border-radius: 10px;
+    float: left;
+
+    -webkit-box-shadow: 0px -1px 1px 0px #748385;
+    -moz-box-shadow: 0px -1px 1px 0px #748385;
+    box-shadow: 0px -1px 1px 0px #748385;
+}
+
+.dropdown-glyph-arrow {
+    margin-top: 5px;
+    margin-left: 4px;
+    border-top: 3px solid #0078bb;
+    border-right: 3px solid #0078bb;
+    height: 10px;
+    width: 10px;
+
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.tactic-detail-button {
+    background-color: #77a5e7;
+    margin-top: 6px;
+    width: 144px;
+    height: 50px;
+    display: inline;
+    float: left;
+    border-radius: 25px;
+
+    background-image: -webkit-linear-gradient(top, #7aa9eb 0%, #4280d9 50%, #417ed4 100%);
+    background-image: -o-linear-gradient(top, #7aa9eb 0%, #4280d9 50%, #417ed4 100%);
+    background-image: -moz-linear-gradient(top, #7aa9eb 0%, #4280d9 50%, #417ed4 100%);
+    background-image: linear-gradient(top, #7aa9eb 0%, #4280d9 50%, #417ed4 100%);
+
+    -webkit-box-shadow: 0px 2px 3px 0px #556062;
+    -moz-box-shadow: 0px 2px 3px 0px #556062;
+    box-shadow: 0px 2px 3px 0px #556062;
+}
+
+.tactic-detail-text {
+    font-size: 16px;
+    text-align: center;
+    margin-top: 6px;
+    margin-left: 10px;
+    width: 100px;
+    float: left;
+    line-height: 18px;
+    text-shadow: 0px 1px #294b7c;
+}
+
+.tactic-detail-arrow-container {
+    margin-top: 11px;
+    margin-left: 0px;
+    width: 26px;
+    height: 26px;
+    border-radius: 13px;
+    float: left;
+
+    border: 2px solid white;
+
+    background-image: -webkit-radial-gradient(50% 100%, circle closest-corner, #faac0e 13px, #fdbb35 14px, #fdd074 26px);
+    background-image: -o-radial-gradient(50% 100%, circle closest-corner, #faac0e 13px, #fdbb35 14px, #fdd074 26px);
+    background-image: -ms-radial-gradient(50% 100%, circle closest-corner, #faac0e 13px, #fdbb35 14px, #fdd074 26px);
+    background-image: -moz-radial-gradient(50% 100%, circle closest-corner, #faac0e 13px, #fdbb35 14px, #fdd074 26px);
+    background-image: radial-gradient(50% 100%, circle closest-corner, #faac0e 13px, #fdbb35 14px, #fdd074 26px);
+
+    -webkit-box-shadow: 0px 1px 3px 0px #2a4d80;
+    -moz-box-shadow: 0px 1px 3px 0px #2a4d80;
+    box-shadow: 0px 1px 3px 0px #2a4d80;
+}
+
+.tactic-detail-arrow {
+    margin-top: 6px;
+    margin-left: 4px;
+    border-top: 3px solid #fff;
+    border-right: 3px solid #fff;
+    height: 10px;
+    width: 10px;
+
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.actions-title-text {
+    width: 184px;
+    display: inline;
+    float: left;
+}
+
+.actions-glyph {
+    display: inline;
+    float: left;
+    margin-top: -2px;
+    width: 30px;
+    height: 22px;
+    border-radius: 11px;
+
+    border: 2px solid white;
+
+    background-image: -webkit-radial-gradient(50% -22px, circle closest-corner, #fff 16px, #f59398 24px, #ce0308 34px);
+    background-image: -o-radial-gradient(50% -22px, circle closest-corner, #fff 16px, #f59398 24px, #ce0308 34px);
+    background-image: -ms-radial-gradient(50% -22px, circle closest-corner, #fff 16px, #f59398 24px, #ce0308 34px);
+    background-image: -moz-radial-gradient(50% -22px, circle closest-corner, #fff 16px, #f59398 24px, #ce0308 34px);
+    background-image: radial-gradient(50% -22px, circle closest-corner, #fff 16px, #f59398 24px, #ce0308 34px);
+
+    -webkit-box-shadow: 0px 2px 3px 0px #888;
+    -moz-box-shadow: 0px 2px 3px 0px #888;
+    box-shadow: 0px 2px 3px 0px #888;
+}
+
+.actions-number {
+    color: #fff;
+    font-size: 16px;
+    line-height: 18px;
+    text-align: center;
 }

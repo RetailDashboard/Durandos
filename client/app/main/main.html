@@ -8,6 +8,10 @@
     
     <div class="department dropdown-item">
       <div class="dropdown-title">DEPARTMENT</div>
+      <div class="dropdown-glyph-on">
+        <div class="dropdown-glyph-arrow">
+        </div>
+      </div>
       <select ng-model="selectedDepartment" ng-options="department.item for department in displayDepartments" ng-change="changeDepartment()">
         <option value="">Department</option>
       </select>
@@ -15,6 +19,10 @@
 
     <div class="category dropdown-item">
       <div class="dropdown-title">CATEGORY</div>
+      <div class="dropdown-glyph-off">
+        <div class="dropdown-glyph-arrow">
+        </div>
+      </div>
       <select ng-model="selectedCategory" ng-options="category.item for category in displayCategories" ng-change="changeCategory()" ng-disabled="disableCategory">
         <option value="">Category</option>
       </select>  
@@ -22,6 +30,10 @@
 
     <div class="brand dropdown-item">
       <div class="dropdown-title">BRAND</div>
+      <div class="dropdown-glyph-off">
+        <div class="dropdown-glyph-arrow">
+        </div>
+      </div>
       <select ng-model="selectedBrand" ng-options="brand.item for brand in displayBrands | brandFilter:selectedCategory" ng-disabled="disableBrand" ng-change="changeBrand()">
         <option value="">Brand</option>
       </select>
@@ -29,6 +41,10 @@
 
     <div class="item dropdown-item">
       <div class="dropdown-title">ITEM</div>
+      <div class="dropdown-glyph-off">
+        <div class="dropdown-glyph-arrow">
+        </div>
+      </div>
       <select ng-model="selectedItem" ng-options="item.item for item in displayItems | itemFilter:selectedBrand" ng-disabled="disableItem" ng-change="changeItem()">
         <option value="">Item</option>
       </select>
@@ -36,9 +52,23 @@
 
     <div class="item-tactic dropdown-item">
       <div class="dropdown-title">ITEM TACTIC</div>
+      <div class="dropdown-glyph-off">
+        <div class="dropdown-glyph-arrow">
+        </div>
+      </div>
       <select ng-model="selectedTactic" ng-options="tactic.ad_type for tactic in displayTactics | tacticFilter:selectedItem" ng-disabled="disableTactic" ng-change="changeTactic()" >
         <option value="">Item-Tactic</option>
       </select>
+    </div>
+    
+    <div class="tactic-detail-button">
+      <div class="tactic-detail-text">
+        View by<br />Tactic Detail
+      </div>
+      <div class="tactic-detail-arrow-container">
+        <div class="tactic-detail-arrow">
+        </div>
+      </div>
     </div>
 
   </div>
