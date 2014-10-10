@@ -5,56 +5,29 @@
   </div>
 
   <div class="chart-content">
-    <table>
-      <tr>
-        <th>Name</th>
-        <th>Num Events</th>
-        <th>Inc Sales</th>
-        <th>Inc Vol</th>
-        <th>Inc Marg</th>
-        <th>Inc Prof</th>
-        <th>Inc Trans</th>
-        <th>Basket Sales Impact</th>
-      </tr>
-      <tr ng-repeat="d in data">
-        <td>{{ d.item }}</td>
-        <td>{{ d.numEvents }}</td>
-        <td>{{ d.sales }}</td>
-        <td>{{ d.volume }}</td>
-        <td>{{ d.margin }}</td>
-        <td>{{ d.profit }}</td>
-        <td>{{ d.transactions }}</td>
-        <td>{{ d.impact }}</td>
-      </tr>
-    </table>
-  </div>
-
-  <div class="graph">
+    <div category-data></div>
   </div>
 
 </div>
 
 <div class="actions">
-
   <div class="title">
     <div class="actions-title-text">
       <h2>Action Required</h2>
     </div>
     <div class="actions-glyph">
       <div class="actions-number">
-        {{ data.length }}
+        {{ actions.length }}
       </div>
     </div>
   </div>
 
   <div class="actions-content">
-    <div ng-repeat="d in data | filter: {disabled: false} | orderBy: 'ActionOrder'" class="{{ d.actionColor }}">
+    <div ng-repeat="action in actions | orderBy: 'ActionOrder'" class="{{ action.actionColor }}">
       <div class="action-info">
-      {{ d.action }} {{ d.followUp }}
+      {{ action.action }}{{ action.followUp }}
       </div>
-      <!-- only one of these should show up -->
-      <div class="expand">
-      </div>
+      <div class="expand"></div>
     </div>
   </div>
 
