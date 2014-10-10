@@ -179,20 +179,13 @@ angular.module('mainModule', ['mainService'])
     //console.log('tactic changed');
   };
   
-
+//initialization function to set state to path upon reset.
   $scope.init = function(){
     var location = window.location.hash;
     if(location !== '#/main/department'){
       var routeSelections = location.split('/').slice(3).map(function(val){
         return val.split('_').join(' ');
       });
-      // var selectedDropdowns = [
-      //   'selectedDepartment',
-      //   'selectedCategory',
-      //   'selectedBrand',
-      //   'selectedItem',
-      //   'selectedTactic'
-      // ];
       if(routeSelections.length >= 1){
         $scope.displayDepartments.$promise.then(function(data){
           data.forEach(function(val){
@@ -233,30 +226,6 @@ angular.module('mainModule', ['mainService'])
           }
         });
       }
-            
-
-
-
-  
-
-
-      // for(var i = 0; i < routeSelections.length; i++){
-      //   console.log(selectedDropdowns[i]);
-      //   var current = $scope[selectedDropdowns[i]];
-      //   if(current === 'selectedCategory'){
-      //     // if(routeSelections[i] === )
-      //   } 
-      // }
-      // // if(routeSelections.length === 1){
-      // //   console.log($scope.selectedDepartment);
-      // //   $scope.changeDepartment();
-      // // }
-      // // else if(routeSelections.length === 2){
-      // //   $scope.changeDepartment();
-      // //   $scope.changeCategory(); 
-      // // } 
-      
-    
     }
   };
   $scope.init();
