@@ -15,7 +15,7 @@ angular.module('retailDashboardApp', [
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $urlRouterProvider
-      .otherwise('/main/department');
+      .otherwise('/main/charts');
     // $locationProvider.html5Mode(true);
   });
   
