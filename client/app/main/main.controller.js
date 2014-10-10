@@ -45,7 +45,6 @@ angular.module('mainModule', ['mainService'])
   $scope.changeDepartment = function() {
     //model of what was selected in the dropdown
     var selection = $scope.selectedDepartment;
-    console.log(selection);
     if(selection === null || selection.item !== 'Dry Goods*'){
       $state.go('main.department');
     //if the model ever evaluates to null this must be called to ensure
@@ -59,10 +58,13 @@ angular.module('mainModule', ['mainService'])
     }
   };
 
-  $scope.changeCategory = function() {
+  $scope.changeCategory = function(arg) {
     //refresh data from server
     DataBrands.getBrandData().$promise.then(function(responseData) {
       $scope.displayBrands = responseData;
+      if(arg){
+        $scope.selectedCategory = arg;
+      }
       var selection = $scope.selectedCategory;
       //something was selected in the dropdown
       if(selection){
@@ -96,9 +98,12 @@ angular.module('mainModule', ['mainService'])
     });
   };
   //same flow as changeCategory
-  $scope.changeBrand = function() {
+  $scope.changeBrand = function(arg) {
     DataItems.getItemData().$promise.then(function(responseData) {
       $scope.displayItems = responseData;
+      if(arg){
+        $scope.selectedBrand = arg;
+      }
       var selection = $scope.selectedBrand;
       if(selection){
         var filteredItems = $scope.displayItems.filter(function(val) {
@@ -129,12 +134,17 @@ angular.module('mainModule', ['mainService'])
     });
   };
 
-  $scope.changeItem = function() {
+  $scope.changeItem = function(arg) {
     DataItemTactics.getItemTacticData().$promise.then(function(responseData) {
       $scope.displayTactics = responseData;
+      if(arg){
+        $scope.selectedItem = arg;
+      }
       var selection = $scope.selectedItem;
       if(selection){  
         var filteredTactics = $scope.displayTactics.filter(function(val) {
+          console.log(val);
+          console.log(selection);
           if(val.item === selection.item){
           return val;
           }
@@ -176,26 +186,75 @@ angular.module('mainModule', ['mainService'])
       var routeSelections = location.split('/').slice(3).map(function(val){
         return val.split('_').join(' ');
       });
-      var selectedDropdowns = [
-        'selectedDepartment',
-        'selectedCategory',
-        'selectedBrand',
-        'selectedItem',
-        'selectedTactic'
-      ];
-      for(var i = 0; i < routeSelections.length; i++){
-        var thisDropdown = selectedDropdowns[i];
-        if(thisDropdown === 'selectedDepartment'){
-          $scope[thisDropdown] = {};
-          var current =  $scope[thisDropdown];
-          current.item = routeSelections[i];
-        } 
+      // var selectedDropdowns = [
+      //   'selectedDepartment',
+      //   'selectedCategory',
+      //   'selectedBrand',
+      //   'selectedItem',
+      //   'selectedTactic'
+      // ];
+      if(routeSelections.length >= 1){
+        $scope.displayDepartments.$promise.then(function(data){
+          data.forEach(function(val){
+            if(val.item === routeSelections[0]){
+              $scope.selectedDepartment = val;
+              $scope.changeDepartment();  
+            }
+          });
+          if(routeSelections.length >= 2){
+            $scope.displayCategories.$promise.then(function(data){
+              data.forEach(function(val){
+                if(val.item === routeSelections[1]){
+                  $scope.selectedCategory = val;
+                }
+              });
+              $scope.changeCategory($scope.selectedCategory);  
+              if(routeSelections.length >= 3){
+                $scope.displayBrands.$promise.then(function(data){
+                  data.forEach(function(val){
+                    if(val.item === routeSelections[2]){
+                      $scope.selectedBrand =  val;
+                    }
+                  });
+                  $scope.changeBrand($scope.selectedBrand);
+                  if(routeSelections.length >= 4){
+                    $scope.displayItems.$promise.then(function(data){
+                      data.forEach(function(val){
+                        if(val.item === routeSelections[3]){
+                          $scope.selectedItem = val;
+                        }
+                      });
+                      $scope.changeItem($scope.selectedItem);
+                    });
+                  }
+                });
+              }
+            });
+          }
+        });
       }
-      if(routeSelections.length === 1){
-        $scope.changeDepartment();
-      }else if(routeSelections.length === 2){
-        
-      } 
+            
+
+
+
+  
+
+
+      // for(var i = 0; i < routeSelections.length; i++){
+      //   console.log(selectedDropdowns[i]);
+      //   var current = $scope[selectedDropdowns[i]];
+      //   if(current === 'selectedCategory'){
+      //     // if(routeSelections[i] === )
+      //   } 
+      // }
+      // // if(routeSelections.length === 1){
+      // //   console.log($scope.selectedDepartment);
+      // //   $scope.changeDepartment();
+      // // }
+      // // else if(routeSelections.length === 2){
+      // //   $scope.changeDepartment();
+      // //   $scope.changeCategory(); 
+      // // } 
       
     
     }
