@@ -3,6 +3,7 @@
 angular.module('brandDataModule', ['ngResource'])
   .controller('BrandCtrl', function ($scope) {
     $scope.data = $scope.displayBrands;
+    $scope.actions = [];
 
     var items = [];
     var incSales = [];
@@ -21,6 +22,9 @@ angular.module('brandDataModule', ['ngResource'])
         incVolAvg.push(e.VolSalesMean);
         incMar.push([e.MarSalesMin, e.MarSalesMax]);
         incMarAvg.push(e.MarSalesMean);
+        if(e.followUp || e.action) {
+          $scope.actions.push(e);
+        }
       });
 
       var charts = [],

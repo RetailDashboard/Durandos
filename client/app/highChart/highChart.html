@@ -12,13 +12,22 @@
 
 <div class="actions">
   <div class="title">
-    <h2>Action Required</h2>
+    <div class="actions-title-text">
+      <h2>Action Required</h2>
+    </div>
+    <div class="actions-glyph">
+      <div class="actions-number">
+        {{ actions.length }}
+      </div>
+    </div>
   </div>
 
   <div class="actions-content">
-    <div ng-repeat="d in data | filter: {disabled: false} | orderBy: 'ActionOrder'" style="background: {{ d.actionColor }}">
-      {{ d.action }} {{ d.followUp }}
-      <!-- only one of these should show up -->
+    <div ng-repeat="action in actions | orderBy: 'ActionOrder'" class="{{ action.actionColor }}">
+      <div class="action-info">
+      {{ action.action }}{{ action.followUp }}
+      </div>
+      <div class="expand"></div>
     </div>
   </div>
 

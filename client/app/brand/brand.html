@@ -39,17 +39,16 @@
     </div>
     <div class="actions-glyph">
       <div class="actions-number">
-        {{ data.length }}
+        {{ actions.length }}
       </div>
     </div>
   </div>
 
   <div class="actions-content">
-    <div ng-repeat="d in data | filter: {disabled: false} | orderBy: 'ActionOrder'" class="{{ d.actionColor }}">
+    <div ng-repeat="action in actions | orderBy: 'ActionOrder'" class="{{ action.actionColor }}">
       <div class="action-info">
-      {{ d.action }} {{ d.followUp }}
+      {{ action.action }}{{ action.followUp }}
       </div>
-      <!-- only one of these should show up -->
       <div class="expand"></div>
     </div>
   </div>
