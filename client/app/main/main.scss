@@ -51,6 +51,7 @@ body {
 }
 
 .dropdown-item select {
+    color: #000;
     width: 144px;
     height: 32px;
 }
@@ -263,13 +264,13 @@ body {
 }
 
 .action-info {
-    width: 172px;
+    width: 170px;
 }
 
 .green {
     font-size: 12px;
     width: 212px;
-    padding: 8px;
+    padding: 10px;
     background-color: #f1f6e9;
     border-radius: 8px;
     border: 1px solid #8dc63f;
@@ -279,7 +280,7 @@ body {
 .red {
     font-size: 12px;
     width: 212px;
-    padding: 8px;
+    padding: 10px;
     background-color: #ffeeee;
     border-radius: 8px;
     border: 1px solid #ff0000;
@@ -289,7 +290,7 @@ body {
 .yellow {
     font-size: 12px;
     width: 212px;
-    padding: 8px;
+    padding: 10px;
     background-color: #fffcdd;
     border-radius: 8px;
     border: 1px solid #d9cb00;
