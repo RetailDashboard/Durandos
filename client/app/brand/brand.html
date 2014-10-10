@@ -5,39 +5,26 @@
   </div>
 
   <div class="chart-content">
-    Type a Category number here: <input type="text" ng-model="searchText">
-  
-    <table>
-      <tr>
-        <th>Category</th>
-        <th>Name</th>
-        <th>numberEvents</th>
-        <th>IncSalesMin</th>
-        <th>IncSalesMax</th>
-        <th>IncSalesMean</th>
-        <th>VolSalesMin</th>
-        <th>VolSalesMax</th>
-        <th>VolSalesMean</th>
-        <th>MarSalesMin</th>
-        <th>MarSalesMax</th>
-        <th>MarSalesMean</th>
-      </tr>
-      <tr ng-repeat="d in data | filter: { Category: searchText }">
-        <td>{{ d.Category }}</td>
-        <td>{{ d.item }}</td>
-        <td>{{ d.numberEvents }}</td>
-        <td>{{ d.IncSalesMin }}</td>
-        <td>{{ d.IncSalesMax }}</td>
-        <td>{{ d.IncSalesMean }}</td>
-        <td>{{ d.VolSalesMin }}</td>
-        <td>{{ d.VolSalesMax }}</td>
-        <td>{{ d.VolSalesMean }}</td>
-        <td>{{ d.MarSalesMin }}</td>
-        <td>{{ d.MarSalesMax }}</td>
-        <td>{{ d.MarSalesMean }}</td>
-      </tr>
-    </table>
+      <table id="trellis">
+    <tr>
+      <td class="first"></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
   </div>
+
+  <style>
+    #trellis td {
+      width: 200px;
+      height: 400px;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    #trellis td.first {
+      width: 300px;
+    }
+  </style>
 
   <div class="graph">
   </div>
