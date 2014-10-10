@@ -117,7 +117,8 @@ angular.module('categoryMonthModule', ['ngResource'])
   })
   .directive('categoryMonth', function() {
     return {
-      template:'<div ng-controller="CategoryMonthCtrl"><div id="lineGraph" style="width: 800px; height: 125px; margin: 0 auto"></div></div>',
+      // CSS for this goes under #lineGraph and #highcharts-12
+      template:'<div ng-controller="CategoryMonthCtrl" id="lineGraph"></div>',
       restrict: 'A'
     };
   });
