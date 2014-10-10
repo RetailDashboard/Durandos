@@ -70,6 +70,8 @@ $scope.makeSeries = function(){
   return someInstance;
 };
 
+    $scope.actions = [];
+
     $scope.formatData = function(data){
       var xItems = $scope.makeSeries();
       var yNumEvents = $scope.makeSeries();
@@ -89,6 +91,10 @@ $scope.makeSeries = function(){
         yProfit.set.push(data[i].profit);
         yTransactions.set.push(data[i].transactions);
         yImpact.set.push(data[i].impact);
+
+        if(data[i].followUp || data[i].action) {
+          $scope.actions.push(data[i]);
+        }
       }
       yNumEvents.average();yNumEvents.setSeries();
       ySales.average();ySales.setSeries();
