@@ -143,8 +143,6 @@ angular.module('mainModule', ['mainService'])
       var selection = $scope.selectedItem;
       if(selection){  
         var filteredTactics = $scope.displayTactics.filter(function(val) {
-          console.log(val);
-          console.log(selection);
           if(val.item === selection.item){
           return val;
           }
