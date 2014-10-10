@@ -5,7 +5,7 @@ var Department = require('./department.model');
 
 // Get list of departments
 exports.index = function(req, res) {
-  Department.find(function (err, departments) {
+  Department.find(null, null, {sort: {item: 1}}, function (err, departments) {
     if(err) { return handleError(res, err); }
     return res.json(200, departments);
   });

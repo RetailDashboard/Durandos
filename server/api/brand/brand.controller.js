@@ -5,7 +5,7 @@ var Brand = require('./brand.model');
 
 // Get list of brands
 exports.index = function(req, res) {
-  Brand.find(function (err, brands) {
+  Brand.find(null, null, {sort: {item: 1}}, function (err, brands) {
     if(err) { return handleError(res, err); }
     return res.json(200, brands);
   });

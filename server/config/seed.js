@@ -95,7 +95,7 @@ ItemTactic.find({}).remove(function() {
 {id: 13,item_id: 27,item: "Cookies with Chips",avgRetail: "$3.49 ",avgPromoPrice: "$1.75 ",page: 1,ad_week: "12-01-02",ad_type: "BOGO",sales: 366,volume: 209,margin: -250,profit: -120,transactions: 219,impact: 13127,isBest: false,followUp: null,action: "Reduce BOGO tactic to preserve margin and/or renegotiate with vendor for additional funding",hiddenAction: "Current tactic and funding generates large volume increases but negative margin impact",actionColor: "red",actionOrder: 2},
 {id: 14,item_id: 27,item: "Cookies with Chips",avgRetail: "$3.49 ",avgPromoPrice: "$1.75 ",page: 1,ad_week: "02-03-12",ad_type: "BOGO",sales: 147,volume: 84,margin: -103,profit: -41,transactions: 132,impact: 9345,isBest: false,followUp: null,action: null,hiddenAction: null,actionColor: null,actionOrder: null
 }, function() {
-      console.log('finished populacting item tactics');
+      console.log('finished populating item tactics');
     }
   );
 });

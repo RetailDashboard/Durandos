@@ -5,7 +5,7 @@ var Itemtactic = require('./itemTactic.model');
 
 // Get list of itemTactics
 exports.index = function(req, res) {
-  Itemtactic.find(function (err, itemTactics) {
+  Itemtactic.find(null, null, {sort: {item: 1}}, function (err, itemTactics) {
     if(err) { return handleError(res, err); }
     return res.json(200, itemTactics);
   });
