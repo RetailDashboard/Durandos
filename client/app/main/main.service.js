@@ -56,5 +56,11 @@ angular.module('mainService', ['ngResource'])
       isArray: true
     }
     });
+  })
+  .directive('categoryData', function() {
+    return {
+      template:'<div ng-controller="HighchartCtrl"><div id="eventsChart"></div><div id="salesChart"></div><div id="volumeChart"></div><div id="marginChart"></div><div id="profitChart"></div><div id="transactionsChart"></div><div id="impactChart"></div></div>',
+      restrict: 'A'
+    };
   });
   
