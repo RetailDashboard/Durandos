@@ -256,4 +256,3 @@ angular.module('mainModule', ['mainService'])
 var eliminateSpaces = function(string) {
   return string.split(' ').join('_');
 };
-
