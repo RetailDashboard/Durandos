@@ -168,7 +168,39 @@ angular.module('mainModule', ['mainService'])
   $scope.changeTactic = function() {
     //console.log('tactic changed');
   };
+  
 
+  $scope.init = function(){
+    var location = window.location.hash;
+    if(location !== '#/main/department'){
+      var routeSelections = location.split('/').slice(3).map(function(val){
+        return val.split('_').join(' ');
+      });
+      var selectedDropdowns = [
+        'selectedDepartment',
+        'selectedCategory',
+        'selectedBrand',
+        'selectedItem',
+        'selectedTactic'
+      ];
+      for(var i = 0; i < routeSelections.length; i++){
+        var thisDropdown = selectedDropdowns[i];
+        if(thisDropdown === 'selectedDepartment'){
+          $scope[thisDropdown] = {};
+          var current =  $scope[thisDropdown];
+          current.item = routeSelections[i];
+        } 
+      }
+      if(routeSelections.length === 1){
+        $scope.changeDepartment();
+      }else if(routeSelections.length === 2){
+        
+      } 
+      
+    
+    }
+  };
+  $scope.init();
 })
 //filters written to handle each data selection
 .filter('brandFilter', function() {
