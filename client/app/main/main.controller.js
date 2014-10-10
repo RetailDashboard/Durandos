@@ -42,9 +42,9 @@ angular.module('mainModule', ['mainService'])
     }
   };
   //changes state in the nested state below main based upon selection
-  $scope.changeDepartment = function() {
+  $scope.changeDepartment = function(arg) {
     //model of what was selected in the dropdown
-    var selection = $scope.selectedDepartment;
+    var selection = arg || $scope.selectedDepartment;
     if(selection === null || selection.item !== 'Dry Goods*'){
       $state.go('main.department');
     //if the model ever evaluates to null this must be called to ensure
@@ -62,10 +62,7 @@ angular.module('mainModule', ['mainService'])
     //refresh data from server
     DataBrands.getBrandData().$promise.then(function(responseData) {
       $scope.displayBrands = responseData;
-      if(arg){
-        $scope.selectedCategory = arg;
-      }
-      var selection = $scope.selectedCategory;
+      var selection = arg || $scope.selectedCategory;
       //something was selected in the dropdown
       if(selection){
         //finds out if there is anything in the neighboring dropdown menu
@@ -101,10 +98,7 @@ angular.module('mainModule', ['mainService'])
   $scope.changeBrand = function(arg) {
     DataItems.getItemData().$promise.then(function(responseData) {
       $scope.displayItems = responseData;
-      if(arg){
-        $scope.selectedBrand = arg;
-      }
-      var selection = $scope.selectedBrand;
+      var selection = arg || $scope.selectedBrand;
       if(selection){
         var filteredItems = $scope.displayItems.filter(function(val) {
           return val.brand === selection.id;
@@ -137,10 +131,7 @@ angular.module('mainModule', ['mainService'])
   $scope.changeItem = function(arg) {
     DataItemTactics.getItemTacticData().$promise.then(function(responseData) {
       $scope.displayTactics = responseData;
-      if(arg){
-        $scope.selectedItem = arg;
-      }
-      var selection = $scope.selectedItem;
+      var selection = arg || $scope.selectedItem;
       if(selection){  
         var filteredTactics = $scope.displayTactics.filter(function(val) {
           if(val.item === selection.item){
@@ -180,7 +171,7 @@ angular.module('mainModule', ['mainService'])
 //initialization function to set state to path upon reset.
   $scope.init = function(){
     var location = window.location.hash;
-    if(location !== '#/main/department'){
+    if(location !== '#/main/charts'){
       var routeSelections = location.split('/').slice(3).map(function(val){
         return val.split('_').join(' ');
       });
@@ -189,9 +180,9 @@ angular.module('mainModule', ['mainService'])
           data.forEach(function(val){
             if(val.item === routeSelections[0]){
               $scope.selectedDepartment = val;
-              $scope.changeDepartment();  
             }
           });
+          $scope.changeDepartment($scope.selectedDepartment);  
           if(routeSelections.length >= 2){
             $scope.displayCategories.$promise.then(function(data){
               data.forEach(function(val){
@@ -224,6 +215,9 @@ angular.module('mainModule', ['mainService'])
           }
         });
       }
+    }else{
+      $scope.selectedDepartment = {item: 'Dry Goods*'};
+      $scope.changeDepartment();
     }
   };
   $scope.init();

@@ -4,7 +4,7 @@ angular.module('retailDashboardApp')
   .config(function ($stateProvider) {
     $stateProvider
       .state('main.category', {
-        url: '/department/:departmentName',
+        url: '/charts/:departmentName',
         templateUrl: 'app/category/category.html',
         controller: 'CategoryCtrl'
       });
