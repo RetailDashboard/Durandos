@@ -47,7 +47,8 @@
   <div class="actions-content">
     <div ng-repeat="action in actions | orderBy: 'ActionOrder'" class="{{ action.actionColor }}">
       <div class="action-info">
-      {{ action.action }}{{ action.followUp }}
+      <strong ng-show="action.action">Action: </strong>{{ action.action }}
+      <strong ng-show="action.followUp">Follow-up: </strong>{{ action.followUp }}
       </div>
       <div class="expand"></div>
     </div>
