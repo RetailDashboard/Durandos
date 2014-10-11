@@ -59,7 +59,13 @@ angular.module('mainService', ['ngResource'])
   })
   .directive('categoryData', function() {
     return {
-      template:'<div ng-controller="HighchartCtrl"><div id="eventsChart"></div><div id="salesChart"></div><div id="volumeChart"></div><div id="marginChart"></div><div id="profitChart"></div><div id="transactionsChart"></div><div id="impactChart"></div></div>',
+      template:'<div ng-controller="CategoryCtrl"><div id="categoryEventsChart"></div><div id="categorySalesChart"></div><div id="categoryVolumeChart"></div><div id="categoryMarginChart"></div><div id="categoryProfitChart"></div><div id="categoryTransactionsChart"></div><div id="categoryImpactChart"></div></div>',
+      restrict: 'A'
+    };
+  })
+  .directive('itemData', function() {
+    return {
+      template:'<div ng-controller="ItemCtrl"><div id="itemEventsChart"></div><div id="itemSalesChart"></div><div id="itemVolumeChart"></div><div id="itemMarginChart"></div><div id="itemProfitChart"></div><div id="itemTransactionsChart"></div><div id="itemImpactChart"></div></div>',
       restrict: 'A'
     };
   });

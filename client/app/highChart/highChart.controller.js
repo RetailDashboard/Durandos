@@ -105,25 +105,16 @@ $scope.makeSeries = function(){
       yImpact.average();yImpact.setSeries();
 
 
-      $scope.displayCategories(xItems.set, yNumEvents.set, yNumEvents.threshold, 15, 'Parity','#eventsChart');
+      $scope.displayCategoriesChart(xItems.set, yNumEvents.set, yNumEvents.threshold, 15, 'Parity','#eventsChart');
       $scope.displayChart(xItems.set, ySales.series, ySales.threshold, 180, 'Sales','#salesChart');
       $scope.displayChart(xItems.set, yVolume.series, yVolume.threshold, 270, 'Volume','#volumeChart');
       $scope.displayChart(xItems.set, yMargin.series, yMargin.threshold, 360, 'Margin', '#marginChart');
       $scope.displayChart(xItems.set, yProfit.series, yProfit.threshold, 450, 'Profit', '#profitChart');
       $scope.displayChart(xItems.set, yTransactions.series, yTransactions.threshold, 540, 'Transactions', '#transactionsChart');
       $scope.displayChart(xItems.set, yImpact.series, yImpact.threshold, 630, 'Impact', '#impactChart');
-
-      console.log(yNumEvents.set);
-    };
-    
-    $scope.averageNumbers = function(array){
-      var sum = _.reduce(array, function(sum, num){
-        return sum+num;
-      });
-      return sum / array.length;
     };
 
-    $scope.displayCategories = function(xItems, ySeries, average, left, chartTitle, chartName) {
+    $scope.displayCategoriesChart = function(xItems, ySeries, average, left, chartTitle, chartName) {
       Highcharts.setOptions({
         chart: {
           style: {
@@ -421,9 +412,3 @@ $scope.makeSeries = function(){
       });
     };
   });
-  // .directive('categoryData', function() {
-  //   return {
-  //     template:'<div ng-controller="HighchartCtrl"><div id="eventsChart"></div><div id="salesChart"></div><div id="volumeChart"></div><div id="marginChart"></div><div id="profitChart"></div><div id="transactionsChart"></div><div id="impactChart"></div></div>',
-  //     restrict: 'A'
-  //   };
-  // });

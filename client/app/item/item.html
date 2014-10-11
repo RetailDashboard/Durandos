@@ -5,90 +5,30 @@
   </div>
 
   <div class="chart-content">
-    Category: <input type="text" ng-model="categorySearch" placeholder="1, 5, or 8"><br />
-    Brand: <input type="text" ng-model="brandSearch" placeholder="c1: 0, 2 || c5: 14 || c8: 5"><br />
-  
-    <style>
-      tr, th, td {
-        text-align: center;
-        border: 1px dotted;
-      }
-      tr:nth-child(odd) {
-        background-color: #DDD;
-      }
-    </style>
-  
-    currently ordered by item name
-  
-    <table>
-      <tr>
-        <th>id</th>
-        <th>Category</th>
-        <th>brand</th>
-        <th>item</th>
-        <th>numEvents</th>
-        <th>sales</th>
-        <th>volume</th>
-        <th>margin</th>
-        <th>profit</th>
-        <th>transactions</th>
-        <th>impact</th>
-        <th>isBest</th>
-        <th>followUp</th>
-        <th>action</th>
-        <th>hiddenAction</th>
-        <th>actionColor</th>
-        <th>disabled</th>
-        <th>ActionOrder</th>
-      </tr>
-      <tr ng-repeat = "d in data | filter: { Category: categorySearch, brand: brandSearch } | orderBy: 'item'">
-        <td>{{ d.id }}</td>
-        <td>{{ d.Category }}</td>
-        <td>{{ d.brand }}</td>
-        <td>{{ d.item }}</td>
-        <td>{{ d.numEvents }}</td>
-        <td>{{ d.sales }}</td>
-        <td>{{ d.volume }}</td>
-        <td>{{ d.margin }}</td>
-        <td>{{ d.profit }}</td>
-        <td>{{ d.transactions }}</td>
-        <td>{{ d.impact }}</td>
-        <td>{{ d.isBest }}</td>
-        <td>{{ d.followUp }}</td>
-        <td>{{ d.action }}</td>
-        <td>{{ d.hiddenAction }}</td>
-        <td>{{ d.actionColor }}</td>
-        <td>{{ d.disabled }}</td>
-        <td>{{ d.ActionOrder }}</td>
-      </tr>
-    </table>
+    <div item-data></div>
   </div>
 
-  <div class="graph">
-  </div>
 </div>
 
 <div class="actions">
-
   <div class="title">
     <div class="actions-title-text">
       <h2>Action Required</h2>
     </div>
     <div class="actions-glyph">
       <div class="actions-number">
-        {{ data.length }}
+        {{ actions.length }}
       </div>
     </div>
   </div>
 
   <div class="actions-content">
-    <div ng-repeat="d in data | filter: {disabled: false} | orderBy: 'ActionOrder'" class="{{ d.actionColor }}">
+    <div ng-repeat="action in actions | orderBy: 'ActionOrder'" class="{{ action.actionColor }}">
       <div class="action-info">
-      {{ d.action }} {{ d.followUp }}
+      {{ action.action }}{{ action.followUp }}
       </div>
-      <!-- only one of these should show up -->
-      <div class="expand">
-      </div>
+      <div class="expand"></div>
     </div>
   </div>
+
 </div>

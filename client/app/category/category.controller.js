@@ -1,10 +1,12 @@
 'use strict';
 
 angular.module('categoryDataModule', ['ngResource'])
-  .controller('CategoryCtrl', function ($scope, CategoryDataFactory) {
-    CategoryDataFactory.getCategoryData().$promise.then(function(data){
+  .controller('CategoryCtrl', function ($scope) {
+  console.log($scope.displayCategories);
+  $scope.displayCategories.$promise.then(function(data){
+    console.log(data);
       $scope.formatData(data);
-    });
+  });
 
 $scope.makeSeries = function(){
     var someInstance = {};
@@ -105,25 +107,17 @@ $scope.makeSeries = function(){
       yImpact.average();yImpact.setSeries();
 
 
-      $scope.displayCategories(xItems.set, yNumEvents.set, yNumEvents.threshold, 15, 'Parity','#eventsChart');
-      $scope.displayChart(xItems.set, ySales.series, ySales.threshold, 180, 'Sales','#salesChart');
-      $scope.displayChart(xItems.set, yVolume.series, yVolume.threshold, 270, 'Volume','#volumeChart');
-      $scope.displayChart(xItems.set, yMargin.series, yMargin.threshold, 360, 'Margin', '#marginChart');
-      $scope.displayChart(xItems.set, yProfit.series, yProfit.threshold, 450, 'Profit', '#profitChart');
-      $scope.displayChart(xItems.set, yTransactions.series, yTransactions.threshold, 540, 'Transactions', '#transactionsChart');
-      $scope.displayChart(xItems.set, yImpact.series, yImpact.threshold, 630, 'Impact', '#impactChart');
+      $scope.displayCategoriesChart(xItems.set, yNumEvents.set, yNumEvents.threshold, 15, 'Parity','#categoryEventsChart');
+      $scope.displayChart(xItems.set, ySales.series, ySales.threshold, 180, 'Sales','#categorySalesChart');
+      $scope.displayChart(xItems.set, yVolume.series, yVolume.threshold, 270, 'Volume','#categoryVolumeChart');
+      $scope.displayChart(xItems.set, yMargin.series, yMargin.threshold, 360, 'Margin', '#categoryMarginChart');
+      $scope.displayChart(xItems.set, yProfit.series, yProfit.threshold, 450, 'Profit', '#categoryProfitChart');
+      $scope.displayChart(xItems.set, yTransactions.series, yTransactions.threshold, 540, 'Transactions', '#categoryTransactionsChart');
+      $scope.displayChart(xItems.set, yImpact.series, yImpact.threshold, 630, 'Impact', '#categoryImpactChart');
 
-      console.log(yNumEvents.set);
-    };
-    
-    $scope.averageNumbers = function(array){
-      var sum = _.reduce(array, function(sum, num){
-        return sum+num;
-      });
-      return sum / array.length;
     };
 
-    $scope.displayCategories = function(xItems, ySeries, average, left, chartTitle, chartName) {
+    $scope.displayCategoriesChart = function(xItems, ySeries, average, left, chartTitle, chartName) {
       Highcharts.setOptions({
         chart: {
           style: {
@@ -187,7 +181,7 @@ $scope.makeSeries = function(){
               color: 'Black',
               fontSize: '18px'
             },
-            align: 'left'
+            align: 'right'
           },
           labels: {
             enabled: false
@@ -238,13 +232,14 @@ $scope.makeSeries = function(){
           title: {
             text: 'Incremental',
             align: 'left',
+            x: 0,
             style: {
               color: 'white',
-              fontSize: '10px',
-              backgroundColor: 'red'
+              fontSize: '10px'
             }
           }
-        }],
+        }
+        ],
         series: [{
             data: [0,0,0,0,0,0,0,0,0,0]
         }],
