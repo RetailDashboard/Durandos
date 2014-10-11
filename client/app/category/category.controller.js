@@ -18,7 +18,7 @@ $scope.makeSeries = function(){
       var sum = _.reduce(this.set, function(sum, num){
         return sum+num;
       });
-      this.threshold = sum / this.set.length;
+      this.threshold = Math.round(sum / this.set.length);
     };
 
     someInstance.setSeries = function(){

@@ -69,10 +69,5 @@ angular.module('mainService', ['ngResource'])
       restrict: 'A'
     };
   })
-  .directive('brandData', function() {
-    return {
-      template:'<div ng-controller="BrandCtrl"><div id="brandEventsChart"></div><div id="brandSalesChart"></div><div id="brandVolumeChart"></div><div id="brandMarginChart"></div></div>',
-      restrict: 'A'
-    };
-  });
+  ;
   
