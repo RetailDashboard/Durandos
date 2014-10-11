@@ -113,7 +113,20 @@ angular.module('brandDataModule', ['ngResource'])
 
             plotOptions: {
               columnrange: {
-                negativeColor: 'orange',
+                color: {
+                  linearGradient: { x1: 0, y1: 0, x2: 1, y2: 0 },
+                  stops: [
+                      [0, 'rgb(0, 75, 125)'],
+                      [1, 'rgb(0, 121, 189)']
+                    ]
+                },
+                negativeColor: {
+                  linearGradient: { x1: 0, y1: 0, x2: 1, y2: 0 },
+                    stops: [
+                        [0, 'rgb(175, 75, 0)'],
+                        [1, 'rgb(247, 123, 0)']
+                    ]
+                },
                 dataLabels: {
                   enabled: true
                 },
