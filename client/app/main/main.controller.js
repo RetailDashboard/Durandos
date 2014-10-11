@@ -1,5 +1,9 @@
 'use strict';
 
+var eliminateSpaces = function(string) {
+  return string.split(' ').join('_');
+};
+
 angular.module('mainModule', ['mainService'])
   .controller('MainCtrl', function($scope, $state, DataDepartments, DataCategories, DataBrands, DataItems, DataItemTactics) {
   $scope.all = 'All';
@@ -258,7 +262,4 @@ angular.module('mainModule', ['mainService'])
   };
 });
 
-var eliminateSpaces = function(string) {
-  return string.split(' ').join('_');
-};
 
