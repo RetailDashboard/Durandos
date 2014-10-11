@@ -102,10 +102,6 @@ body {
     box-shadow: 0 0 8px #53849c;
 }
 
-input{
-    width: 100px;
-}
-
 .title {
     h2 {
         font-weight: normal;
@@ -391,4 +387,11 @@ $legend-height: 60px;
         background-color: #e06d00;
     }
     margin-right: 3px;
+}
+
+.calendar {
+    position: relative;
+    top: -24px;
+    left: 266px;
+    width: 500px;
 }
