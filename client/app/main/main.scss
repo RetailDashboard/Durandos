@@ -35,7 +35,6 @@ body {
     width: 984px;
     height: 80px;
     padding-top: 10px;
-    z-index: 3;
 }
 
 .dropdown-title {
@@ -85,6 +84,7 @@ body {
 }
 
 .chart-content {
+    background-color: #333;
     height: 432px;
 }
 
@@ -326,4 +326,80 @@ input{
     margin: auto;
     margin-left: 30px;
     margin-bottom: 10px;
+}
+
+#highcharts-12 {
+}
+
+.top {
+    background-color: #fff;
+    height: 60px;
+    width: 732px;
+    position: absolute;
+    display: inline;
+    margin-left: 20px;
+    top: 174px;
+}
+
+.legend {
+    width: 174px;
+    font-size: 9px;
+    position: relative;
+    float: right;
+    display: inline;
+    margin-top: 10px;
+}
+
+$bar-width: 38px;
+$bar-height: 5px;
+$legend-height: 60px;
+
+
+.blue-legend {
+    height: $legend-height;
+    float: left;
+    width: $bar-width;
+    .blue-bar {
+        width: $bar-width;
+        height: $bar-height;
+        background-color: #0071b1;
+    }    
+    margin-right: 3px;
+}
+
+.green-legend {
+    height: $legend-height;
+    float: left;
+    width: $bar-width;
+
+    .green-bar {
+        width: $bar-width;
+        height: $bar-height;
+        background-color: #bade90;
+    }     
+    margin-right: 3px;
+}
+
+.yellow-legend {
+    height: $legend-height;
+    float: left;
+    width: $bar-width;
+    .yellow-bar {
+        width: $bar-width;
+        height: $bar-height;
+        background-color: #f1a915;
+    }        
+    margin-right: 3px;
+}
+
+.orange-legend {
+    height: $legend-height;
+    float: left;
+    width: $bar-width;
+    .orange-bar {
+        width: $bar-width;
+        height: $bar-height;
+        background-color: #e06d00;
+    }
+    margin-right: 3px;
 }
