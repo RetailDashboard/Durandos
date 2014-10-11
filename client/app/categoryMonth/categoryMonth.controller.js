@@ -109,7 +109,8 @@ angular.module('categoryMonthModule', ['ngResource'])
           }]
         },
         chart: {
-          backgroundColor: bgColor
+          backgroundColor: bgColor,
+          borderRadius: 8
         }
       });
     };
