@@ -141,13 +141,9 @@ Thanks for contributing!
 ### Guidelines
 
 1. Uphold the current code standard:
-    - Keep your code [DRY]().
-    - Apply the [boy scout rule]().
+    - Keep your code [DRY](http://en.wikipedia.org/wiki/Don't_repeat_yourself).
+    - Apply the [boy scout rule](http://programmer.97things.oreilly.com/wiki/index.php/The_Boy_Scout_Rule).
     - Follow [STYLE-GUIDE.md](STYLE-GUIDE.md)
-1. Run the [tests]() before submitting a pull request.
-1. Tests are very, very important. Submit tests if your pull request contains
-   new, testable behavior.
-1. Your pull request is comprised of a single ([squashed]()) commit.
 
 ## Checklist:
 

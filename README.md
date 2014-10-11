@@ -1,12 +1,10 @@
-# Durando
+# Durandos
 
-> Pithy project description
+> A data visualization dashboard that allows the user to graph sales data for various categories and subcategories of products and recommends actions based on the data.
 
 ## Team
 
-  - __Product Owner__: teamMember
-  - __Scrum Master__: teamMember
-  - __Development Team Members__: teamMember, teamMember
+  - __Development Team Members__: [Mike Axtman](https://github.com/mdaxtman), [Chris Bradley](https://github.com/chrbradley), [Dan Chung](https://github.com/dnc223), [Robin Kim](https://therobinkim.com/) ([github](https://github.com/therobinkim))
 
 ## Table of Contents
 
@@ -25,10 +23,9 @@
 ## Requirements
 
 - Node 0.10.x
-- Redis 2.6.x
-- Postgresql 9.1.x
-- etc
-- etc
+- MongoDB 2.6.x
+
+This repository was created with Yeoman using `generator-angular-fullstack`.
 
 ## Development
 
@@ -44,7 +41,7 @@ bower install
 
 ### Roadmap
 
-View the project roadmap [here](LINK_TO_PROJECT_ISSUES)
+View the project roadmap [here](https://waffle.io/retaildashboard/durandos).
 
 
 ## Contributing
