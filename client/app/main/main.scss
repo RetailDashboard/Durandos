@@ -84,7 +84,6 @@ body {
 }
 
 .chart-content {
-    background-color: #333;
     height: 432px;
 }
 
@@ -153,16 +152,7 @@ input{
 }
 
 .dropdown-glyph-arrow {
-    margin-top: 5px;
-    margin-left: 4px;
-    border-top: 3px solid #0078bb;
-    border-right: 3px solid #0078bb;
-    height: 10px;
-    width: 10px;
 
-    -ms-transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
-    transform: rotate(45deg);
 }
 
 .tactic-detail-button {
