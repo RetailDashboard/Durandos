@@ -39,10 +39,9 @@ angular.module('categoryMonthModule', ['ngResource'])
       $('#lineGraph').highcharts({
         chart: {
           backgroundColor: bgColor,
+          borderRadius: 10,
           style: {
             position: 'absolute',
-            top: 474,
-            left: 28,
             overflow: 'visible'
           }
         },
