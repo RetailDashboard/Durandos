@@ -43,22 +43,27 @@ angular.module('mainModule', ['mainService'])
   };
   //changes state in the nested state below main based upon selection
   $scope.changeDepartment = function(arg) {
-    //model of what was selected in the dropdown
-    var selection = arg || $scope.selectedDepartment;
-    if(selection === null || selection.item !== 'Dry Goods*'){
-      $state.go('main.department');
-    //if the model ever evaluates to null this must be called to ensure
-    //all following dropdowns are disabled after it.  
-      $scope.disableDropdowns();
-    }else{
-      $scope.disableCategory = false;
-      $state.go('main.category',{
-        departmentName : eliminateSpaces(selection.item)
-      });  
-    }
+      var selection = arg || $scope.selectedDepartment;
+      if(selection === null || selection.item !== 'Dry Goods*'){
+        $state.go('main.department');
+      //if the model ever evaluates to null this must be called to ensure
+      //all following dropdowns are disabled after it.  
+        $scope.selectedCategory = null;
+        $scope.disableCategory = true;
+        $scope.disableDropdowns();
+      }else{
+        $scope.disableCategory = false;
+        $scope.selectedCategory = null;
+        $scope.disableDropdowns();   
+        $state.go('main.category',{
+          departmentName : eliminateSpaces(selection.item)
+        });
+      }
   };
 
   $scope.changeCategory = function(arg) {
+    $scope.selectedBrand = null;
+    $scope.disableDropdowns();
     //refresh data from server
     DataBrands.getBrandData().$promise.then(function(responseData) {
       $scope.displayBrands = responseData;
@@ -256,3 +261,4 @@ angular.module('mainModule', ['mainService'])
 var eliminateSpaces = function(string) {
   return string.split(' ').join('_');
 };
+

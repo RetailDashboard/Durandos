@@ -8,8 +8,8 @@
 
     <div class="department dropdown-item">
       <div class="dropdown-title">DEPARTMENT</div>
-      <div class="dropdown-glyph-on">
-        <div class="dropdown-glyph-arrow">
+      <div ng-class="{'dropdown-glyph-on':selectedDepartment, 'dropdown-glyph-off': !selectedDepartment}">
+        <div class="dropdown-glyph-arrow" ng-click="changeDepartment()">
         </div>
       </div>
       <select class="form-control btn btn-primary dropdown-toggle" ng-model="selectedDepartment" ng-options="department.item for department in displayDepartments" ng-change="changeDepartment()">
@@ -19,8 +19,8 @@
 
     <div class="category dropdown-item">
       <div class="dropdown-title">CATEGORY</div>
-      <div class="dropdown-glyph-off">
-        <div class="dropdown-glyph-arrow">
+      <div ng-class="{'dropdown-glyph-on': selectedDepartment, 'dropdown-glyph-off': !selectedDepartment}">
+        <div class="dropdown-glyph-arrow" ng-click="changeCategory()">
         </div>
       </div>
       <select class="form-control btn btn-primary dropdown-toggle" ng-model="selectedCategory" ng-options="category.item for category in displayCategories" ng-change="changeCategory()" ng-disabled="disableCategory">
@@ -30,8 +30,8 @@
 
     <div class="brand dropdown-item">
       <div class="dropdown-title">BRAND</div>
-      <div class="dropdown-glyph-off">
-        <div class="dropdown-glyph-arrow">
+      <div ng-class="{'dropdown-glyph-off':!selectedCategory, 'dropdown-glyph-on': selectedCategory}">
+        <div class="dropdown-glyph-arrow" ng-click="changeBrand()">
         </div>
       </div>
       <select class="form-control btn btn-primary dropdown-toggle" ng-model="selectedBrand" ng-options="brand.item for brand in displayBrands | brandFilter:selectedCategory" ng-disabled="disableBrand" ng-change="changeBrand()">
@@ -42,7 +42,7 @@
     <div class="item dropdown-item">
       <div class="dropdown-title">ITEM</div>
       <div class="dropdown-glyph-off">
-        <div class="dropdown-glyph-arrow">
+        <div class="dropdown-glyph-arrow" ng-click="changeItem()">
         </div>
       </div>
       <select class="form-control btn btn-primary dropdown-toggle" ng-model="selectedItem" ng-options="item.item for item in displayItems | itemFilter:selectedBrand" ng-disabled="disableItem" ng-change="changeItem()">
@@ -53,7 +53,7 @@
     <div class="item-tactic dropdown-item">
       <div class="dropdown-title">ITEM TACTIC</div>
       <div class="dropdown-glyph-off">
-        <div class="dropdown-glyph-arrow">
+        <div class="dropdown-glyph-arrow" ng-click="changeTactic()">
         </div>
       </div>
       <select class="form-control btn btn-primary dropdown-toggle" ng-model="selectedTactic" ng-options="tactic.ad_type for tactic in displayTactics | tacticFilter:selectedItem" ng-disabled="disableTactic" ng-change="changeTactic()" >
