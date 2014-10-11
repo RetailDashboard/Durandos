@@ -35,18 +35,17 @@ angular.module('categoryMonthModule', ['ngResource'])
       for(var i = 0; i < seriesDataAverage.length; i++) {
         seriesDataTarget.push(target);
       }
-      
-      Highcharts.setOptions({
+
+      $('#lineGraph').highcharts({
         chart: {
+          backgroundColor: bgColor,
           style: {
             position: 'absolute',
             top: 474,
             left: 28,
             overflow: 'visible'
           }
-        }
-      });
-      $('#lineGraph').highcharts({
+        },
         title: {
           text: '',
           x: -20 //center
@@ -107,9 +106,6 @@ angular.module('categoryMonthModule', ['ngResource'])
               color: targetColor
             }
           }]
-        },
-        chart: {
-          backgroundColor: bgColor
         }
       });
     };

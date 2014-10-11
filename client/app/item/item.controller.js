@@ -116,16 +116,6 @@ $scope.makeSeries = function(){
       
     
       $scope.displayItemsChart = function(xItems, ySeries, average, left, chartTitle, chartName) {
-        Highcharts.setOptions({
-          chart: {
-            style: {
-              position: 'absolute',
-              top: 69,
-              left: left,
-              overflow: 'visible'
-            }
-          }
-        });
         $(chartName).highcharts({
           chart: {
             type: 'bar',
@@ -135,7 +125,13 @@ $scope.makeSeries = function(){
             spacingTop: 10,
             spacingBottom: 10,
             spacingLeft: 0,
-            spacingRight: 10
+            spacingRight: 10,
+            style: {
+              position: 'absolute',
+              top: 69,
+              left: left,
+              overflow: 'visible'
+            }
           },
           title: {
               text: null
@@ -246,16 +242,6 @@ $scope.makeSeries = function(){
         });
       };
       $scope.displayChart = function(xItems, ySeries, average, left, chartTitle, chartName) {
-        Highcharts.setOptions({
-          chart: {
-            style: {
-              position: 'absolute',
-              top: 69,
-              left: left,
-              overflow: 'visible'
-            }
-          }
-        });
         $(chartName).highcharts({
           chart: {
             type: 'bar',
@@ -266,7 +252,13 @@ $scope.makeSeries = function(){
             spacingTop: 10,
             spacingBottom: 10,
             spacingLeft: 0,
-            spacingRight: 0
+            spacingRight: 0,
+            style: {
+              position: 'absolute',
+              top: 69,
+              left: left,
+              overflow: 'visible'
+            }
           },
           title: {
               text: null,
