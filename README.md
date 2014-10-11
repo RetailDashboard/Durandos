@@ -4,7 +4,7 @@
 
 ## Team
 
-  - __Development Team Members__: [Mike Axtman](https://github.com/mdaxtman), [Chris Bradley](https://github.com/chrbradley), [Dan Chung](https://github.com/dnc223), [Robin Kim](https://therobinkim.com/) ([github](https://github.com/therobinkim))
+  - __Development Team Members__: [Mike Axtman](https://github.com/mdaxtman), [Chris Bradley](https://github.com/chrbradley), [Dan Chung](https://github.com/dnc223), [Robin Kim](http://therobinkim.com/) ([github](https://github.com/therobinkim))
 
 ## Table of Contents
 
