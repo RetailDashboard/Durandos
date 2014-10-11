@@ -41,7 +41,7 @@
 
     <div class="item dropdown-item">
       <div class="dropdown-title">ITEM</div>
-      <div class="dropdown-glyph-off">
+      <div ng-class="{'dropdown-glyph-off':!selectedBrand, 'dropdown-glyph-on': selectedBrand}">
         <div class="dropdown-glyph-arrow" ng-click="changeItem()">
         </div>
       </div>
@@ -52,7 +52,7 @@
 
     <div class="item-tactic dropdown-item">
       <div class="dropdown-title">ITEM TACTIC</div>
-      <div class="dropdown-glyph-off">
+      <div ng-class="{'dropdown-glyph-off':!selectedItem, 'dropdown-glyph-on': selectedItem}">
         <div class="dropdown-glyph-arrow" ng-click="changeTactic()">
         </div>
       </div>
