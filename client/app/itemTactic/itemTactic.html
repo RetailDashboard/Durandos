@@ -96,8 +96,8 @@
   <div class="actions-content">
     <div ng-repeat="d in data | filter: {disabled: false} | orderBy: 'ActionOrder'" class="{{ d.actionColor }}">
       <div class="action-info">
-      <strong ng-show="d.action">Action: </strong>{{ d.action }} 
-      <strong ng-show="d.followUp">Follow-Up: </strong>{{ d.followUp }}
+      <strong ng-show="d.action">Action:&nbsp;</strong>{{ d.action }} 
+      <strong ng-show="d.followUp">Follow-Up:&nbsp;</strong>{{ d.followUp }}
       </div>      <!-- only one of these should show up -->
       <div class="expand">
       </div>
