@@ -225,8 +225,10 @@ angular.module('mainModule', ['mainService'])
         });
       }
     }else{
-      $scope.selectedDepartment = {item: 'Dry Goods*'};
-      $scope.changeDepartment();
+      $scope.displayDepartments.$promise.then(function(data){
+        $scope.selectedDepartment = data[1];
+        $scope.changeDepartment();
+      });
     }
   };
   $scope.init();
